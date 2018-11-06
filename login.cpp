@@ -4,6 +4,7 @@
 #include "QMessageBox"   // 引入QMessageBox类，用于弹窗
 #include "QLineEdit"
 #include "register.h"
+#include "QFile"
 Login::Login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login)
@@ -23,6 +24,7 @@ void Login::on_Login_Button_clicked()
 {
     QString UserName=ui->UserName_Edit->text().trimmed(); // 去除用户名输入的空格
     QString PassWord=ui->PassWord_Edit->text();
+    // to do： 读取文件 账号和密码
     if(UserName == "suliangcai" && PassWord == "123456789")
     {
         accept();
