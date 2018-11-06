@@ -1,10 +1,7 @@
 #include "register.h"
 #include "ui_register.h"
 #include <QString>
-<<<<<<< HEAD
 #include <QLine.h>
-=======
->>>>>>> 9dce730fb474817a16c68880c0b36e3292325b84
 #include <QMessageBox>
 #include <QDebug>
 #include <QFile>
