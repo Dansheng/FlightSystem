@@ -1,13 +1,15 @@
 #include "register.h"
 #include "ui_register.h"
-#include <QString.h>
+#include <QString>
 #include <QMessageBox>
-#include <string>
+#include <QDebug>
+#include <QFile>
 Register::Register(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Register)
 {
     ui->setupUi(this);
+//    ui->IdCard_Edit->setMaxLength(18);
 }
 
 Register::~Register()
@@ -29,8 +31,7 @@ void Register::on_Sure_Button_clicked()
     QMessageBox warning;
     QString info;
     warning.setWindowTitle("错误");
-
-    if(!PassWord==PassWordTwo)
+    if(PassWord!=PassWordTwo)
     {
         info="您输入的两次密码不同";
         warning.setText(info);
@@ -43,12 +44,17 @@ void Register::on_Sure_Button_clicked()
         info="您的手机号输入有误";
         warning.setText(info);
         warning.addButton("确定",QMessageBox::ActionRole);
-        warning.exe();
+        warning.exec();
     }
     else
     {
-        // to do: write the data to txt
+        // to do: write the data to csv
+        QFile data("out.txt");
+        if (data.open(QFile::WriteOnly | QFile::Truncate)) {
+            QTextStream out(&data);
+            out << "Result: " << qSetFieldWidth(10) << left << 3.14 << 2.7;
+            // writes "Result: 3.14      2.7       "
+        }
         accept();
     }
-
 }
