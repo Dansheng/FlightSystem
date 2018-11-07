@@ -1086,6 +1086,7 @@ release/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		../findfight.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QDialog \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qdialog.h \
+		../orderquery.h \
 		../userinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\mainwindow.cpp
 
@@ -1794,6 +1795,9 @@ release/userinfo.o: ../userinfo.cpp ../userinfo.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtGui/qinputmethod.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QButtonGroup \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QDial \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qdial.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qabstractslider.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QHeaderView \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qheaderview.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qabstractitemview.h \
@@ -1807,12 +1811,10 @@ release/userinfo.o: ../userinfo.cpp ../userinfo.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtGui/qvalidator.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtCore/qregularexpression.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qslider.h \
-		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qabstractslider.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qstyle.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qtabbar.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qtabwidget.h \
-		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qrubberband.h \
-		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QWidget
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qrubberband.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\userinfo.o ..\userinfo.cpp
 
 release/qrc_images.o: release/qrc_images.cpp 

@@ -16,11 +16,18 @@ public:
     ~MainWindow();
 
 private slots:
+    //find_btn slots
     void on_Find_Button_clicked();
-
+    void on_Find_Button_pressed();
+    void on_Find_Button_released();
+    //order_btn slots
     void on_Order_Button_clicked();
-
+    void on_Order_Button_pressed();
+    void on_Order_Button_released();
+    //user_btn slots
     void on_User_Button_clicked();
+    void on_User_Button_pressed();
+    void on_User_Button_released();
 
 private:
     Ui::MainWindow *ui;

@@ -4,5 +4,8 @@
         <file>find_btn.png</file>
         <file>order_btn.png</file>
         <file>user_btn.png</file>
+        <file>orderpress_btn.png</file>
+        <file>findpress_btn.png</file>
+        <file>userpress_btn.png</file>
     </qresource>
 </RCC>
