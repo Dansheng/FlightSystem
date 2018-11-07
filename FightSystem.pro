@@ -27,17 +27,26 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     login.cpp \
-    register.cpp
+    register.cpp \
+    findfight.cpp \
+    orderquery.cpp \
+    userinfo.cpp
 
 HEADERS += \
         mainwindow.h \
     login.h \
-    register.h
+    register.h \
+    findfight.h \
+    orderquery.h \
+    userinfo.h
 
 FORMS += \
         mainwindow.ui \
     login.ui \
-    register.ui
+    register.ui \
+    findfight.ui \
+    orderquery.ui \
+    userinfo.ui
 
 RESOURCES += \
     assets/images/images.qrc

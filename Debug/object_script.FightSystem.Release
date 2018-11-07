@@ -1,0 +1,16 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\login.o
+./release\register.o
+./release\findfight.o
+./release\orderquery.o
+./release\userinfo.o
+./release\qrc_images.o
+./release\moc_mainwindow.o
+./release\moc_login.o
+./release\moc_register.o
+./release\moc_findfight.o
+./release\moc_orderquery.o
+./release\moc_userinfo.o
+);

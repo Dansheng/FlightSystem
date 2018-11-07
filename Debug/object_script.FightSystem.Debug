@@ -1,0 +1,16 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\login.o
+./debug\register.o
+./debug\findfight.o
+./debug\orderquery.o
+./debug\userinfo.o
+./debug\qrc_images.o
+./debug\moc_mainwindow.o
+./debug\moc_login.o
+./debug\moc_register.o
+./debug\moc_findfight.o
+./debug\moc_orderquery.o
+./debug\moc_userinfo.o
+);
