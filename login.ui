@@ -85,6 +85,19 @@
     <string>注册</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="Visitor_Button">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>360</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>游客进入</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

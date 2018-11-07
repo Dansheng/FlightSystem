@@ -20,6 +20,8 @@ private slots: // 信号
 
     void on_Register_Button_clicked();
 
+    void on_Visitor_Button_clicked();
+
 private:
     Ui::Login *ui;
 };

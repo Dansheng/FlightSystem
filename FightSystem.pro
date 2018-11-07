@@ -38,3 +38,6 @@ FORMS += \
         mainwindow.ui \
     login.ui \
     register.ui
+
+RESOURCES += \
+    assets/images/images.qrc

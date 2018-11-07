@@ -6,64 +6,84 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>407</width>
-    <height>496</height>
+    <width>885</width>
+    <height>359</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>40</y>
-      <width>281</width>
-      <height>171</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>400</y>
-      <width>75</width>
-      <height>23</height>
+      <x>180</x>
+      <y>10</y>
+      <width>501</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
-     <string>确认</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="assets/images/images.qrc">:/images/logo.png</pixmap>
     </property>
    </widget>
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QPushButton" name="Find_Button">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>220</y>
-      <width>221</width>
-      <height>131</height>
+      <x>70</x>
+      <y>120</y>
+      <width>181</width>
+      <height>171</height>
      </rect>
     </property>
-    <property name="currentIndex">
-     <number>1</number>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/images/find_btn.png);</string>
     </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
-    </widget>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Order_Button">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>120</y>
+      <width>181</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/images/order_btn.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="User_Button">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>120</y>
+      <width>181</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/images/user_btn.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="assets/images/images.qrc"/>
+ </resources>
  <connections/>
 </ui>

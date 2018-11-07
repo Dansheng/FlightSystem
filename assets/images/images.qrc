@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>logo.png</file>
+        <file>find_btn.png</file>
+        <file>order_btn.png</file>
+        <file>user_btn.png</file>
+    </qresource>
+</RCC>

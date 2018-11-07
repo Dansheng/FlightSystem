@@ -30,6 +30,7 @@ public:
     QLabel *PassWord_Label;
     QPushButton *Login_Button;
     QPushButton *Register_Button;
+    QPushButton *Visitor_Button;
 
     void setupUi(QDialog *Login)
     {
@@ -54,6 +55,9 @@ public:
         Register_Button = new QPushButton(Login);
         Register_Button->setObjectName(QStringLiteral("Register_Button"));
         Register_Button->setGeometry(QRect(230, 310, 75, 23));
+        Visitor_Button = new QPushButton(Login);
+        Visitor_Button->setObjectName(QStringLiteral("Visitor_Button"));
+        Visitor_Button->setGeometry(QRect(170, 360, 75, 23));
 
         retranslateUi(Login);
 
@@ -67,6 +71,7 @@ public:
         PassWord_Label->setText(QApplication::translate("Login", "\345\257\206\347\240\201", Q_NULLPTR));
         Login_Button->setText(QApplication::translate("Login", "\347\231\273\351\231\206", Q_NULLPTR));
         Register_Button->setText(QApplication::translate("Login", "\346\263\250\345\206\214", Q_NULLPTR));
+        Visitor_Button->setText(QApplication::translate("Login", "\346\270\270\345\256\242\350\277\233\345\205\245", Q_NULLPTR));
     } // retranslateUi
 
 };

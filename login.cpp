@@ -4,6 +4,7 @@
 #include "QMessageBox"   // 引入QMessageBox类，用于弹窗
 #include "QLineEdit"
 #include "register.h"
+#include <QDialog>
 #include "QFile"
 Login::Login(QWidget *parent) :
     QDialog(parent),
@@ -50,5 +51,13 @@ void Login::on_Register_Button_clicked()
     Register reg;
     reg.setWindowTitle("注册");
     // to do: hide the windows
-    reg.exec();
+    if(reg.exec() == QDialog::Accepted)
+    {
+        //to do: 返回登陆界面或者直接进入主窗口并显示用户信息
+    }
+}
+
+void Login::on_Visitor_Button_clicked()
+{
+    accept();
 }

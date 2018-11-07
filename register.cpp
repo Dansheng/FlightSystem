@@ -20,6 +20,14 @@ Register::~Register()
 {
     delete ui;
 }
+void SentMessage(QString info)
+{
+    QMessageBox warning;
+    warning.setWindowTitle("提示");
+    warning.setText(info);
+    warning.addButton("确定",QMessageBox::ActionRole);
+    warning.exec();
+}
 
 void Register::on_Sure_Button_clicked()
 {
@@ -32,24 +40,17 @@ void Register::on_Sure_Button_clicked()
     QString IdCard=ui->IdCard_Edit->text();
     QString RealName=ui->RealName_Edit->text();
     //declare the warning windows
-    QMessageBox warning;
     QString info;
-    warning.setWindowTitle("错误");
     // to do: 完善表单验
     if(PassWord!=PassWordTwo)
     {
         info="您输入的两次密码不同";
-        warning.setText(info);
-        warning.addButton("确定",QMessageBox::ActionRole);
-        warning.exec();
-
+        SentMessage(info);
     }
     else if(PhoneNumber.length()!=11)
     {
         info="您的手机号输入有误";
-        warning.setText(info);
-        warning.addButton("确定",QMessageBox::ActionRole);
-        warning.exec();
+        SentMessage(info);
     }
     else
     {
@@ -63,7 +64,12 @@ void Register::on_Sure_Button_clicked()
             out << UserName << "," << PassWord << "," << Place << "," << RealName << "," << PhoneNumber << "," << IdCard <<endl;
             data.flush();
             data.close();
+            info="注册成功";
+            SentMessage(info);
+
         }
         accept();
     }
 }
+
+
