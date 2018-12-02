@@ -1206,7 +1206,8 @@ release/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QDialog \
 		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qdialog.h \
 		../orderquery.h \
-		../userinfo.h
+		../userinfo.h \
+		../addfight.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\mainwindow.cpp
 
 release/login.o: ../login.cpp ../login.h \
@@ -2038,7 +2039,59 @@ release/addfight.o: ../addfight.cpp ../addfight.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtCore/qfiledevice.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtGui/qvector2d.h \
 		D:/Qt/5.9.6/mingw53_32/include/QtGui/qtouchdevice.h \
-		ui_addfight.h
+		ui_addfight.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/QVariant \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QAction \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qaction.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtGui/qicon.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qactiongroup.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QApplication \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qapplication.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/qcoreapplication.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/qeventloop.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtGui/qguiapplication.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtGui/qinputmethod.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QButtonGroup \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QDateTimeEdit \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qdatetimeedit.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/qdatetime.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtGui/qvalidator.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/qregularexpression.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QHeaderView \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qheaderview.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qframe.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qstyleoption.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qslider.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qabstractslider.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qstyle.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qtabbar.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qtabwidget.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qrubberband.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QLabel \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QLineEdit \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qlineedit.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtGui/qtextcursor.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtGui/qtextformat.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtGui/qpen.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtGui/qtextoption.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QPushButton \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qpushbutton.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/QString \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/QMessageBox \
+		D:/Qt/5.9.6/mingw53_32/include/QtWidgets/qmessagebox.h \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/QDebug \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/QFile \
+		D:/Qt/5.9.6/mingw53_32/include/QtCore/QLine.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\addfight.o ..\addfight.cpp
 
 release/qrc_images.o: release/qrc_images.cpp 
