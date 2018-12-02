@@ -6,6 +6,7 @@ INPUT(
 ./debug\findfight.o
 ./debug\orderquery.o
 ./debug\userinfo.o
+./debug\addfight.o
 ./debug\qrc_images.o
 ./debug\moc_mainwindow.o
 ./debug\moc_login.o
@@ -13,4 +14,5 @@ INPUT(
 ./debug\moc_findfight.o
 ./debug\moc_orderquery.o
 ./debug\moc_userinfo.o
+./debug\moc_addfight.o
 );

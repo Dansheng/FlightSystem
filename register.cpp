@@ -41,7 +41,7 @@ void Register::on_Sure_Button_clicked()
     QString RealName=ui->RealName_Edit->text();
     //declare the warning windows
     QString info;
-    // to do: 完善表单验
+    // to do: 完善表单验证
     if(PassWord!=PassWordTwo)
     {
         info="您输入的两次密码不同";

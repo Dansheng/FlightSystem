@@ -4,6 +4,7 @@
 #include <findfight.h>
 #include <orderquery.h>
 #include <userinfo.h>
+#include <addfight.h>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -70,4 +71,12 @@ void MainWindow::on_User_Button_pressed()
 void MainWindow::on_User_Button_released()
 {
     ui->User_Button->setStyleSheet("border-image: url(:/images/user_btn.png);");
+}
+
+void MainWindow::on_AddFight_clicked()
+{
+    AddFight addfight;
+    this->hide();
+    addfight.exec();
+    this->show();
 }

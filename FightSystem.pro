@@ -30,7 +30,8 @@ SOURCES += \
     register.cpp \
     findfight.cpp \
     orderquery.cpp \
-    userinfo.cpp
+    userinfo.cpp \
+    addfight.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     register.h \
     findfight.h \
     orderquery.h \
-    userinfo.h
+    userinfo.h \
+    addfight.h
 
 FORMS += \
         mainwindow.ui \
@@ -46,7 +48,8 @@ FORMS += \
     register.ui \
     findfight.ui \
     orderquery.ui \
-    userinfo.ui
+    userinfo.ui \
+    addfight.ui
 
 RESOURCES += \
     assets/images/images.qrc

@@ -29,6 +29,8 @@ private slots:
     void on_User_Button_pressed();
     void on_User_Button_released();
 
+    void on_AddFight_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

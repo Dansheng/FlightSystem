@@ -30,6 +30,7 @@ public:
     QPushButton *Find_Button;
     QPushButton *Order_Button;
     QPushButton *User_Button;
+    QPushButton *AddFight;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -55,6 +56,9 @@ public:
         User_Button->setObjectName(QStringLiteral("User_Button"));
         User_Button->setGeometry(QRect(600, 120, 181, 171));
         User_Button->setStyleSheet(QStringLiteral("border-image: url(:/images/user_btn.png);"));
+        AddFight = new QPushButton(centralWidget);
+        AddFight->setObjectName(QStringLiteral("AddFight"));
+        AddFight->setGeometry(QRect(680, 300, 93, 28));
         MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -72,6 +76,7 @@ public:
         Find_Button->setText(QString());
         Order_Button->setText(QString());
         User_Button->setText(QString());
+        AddFight->setText(QApplication::translate("MainWindow", "AddFight", Q_NULLPTR));
     } // retranslateUi
 
 };
