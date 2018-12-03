@@ -14,6 +14,7 @@ Register::Register(QWidget *parent) :
     ui->PassWordTwo_Edit->setEchoMode(QLineEdit::Password);
     ui->IdCard_Edit->setMaxLength(18);
     ui->IdCard_Edit->setMaxLength(18);
+    // 添加初始化的效果
 }
 
 Register::~Register()
@@ -73,3 +74,13 @@ void Register::on_Sure_Button_clicked()
 }
 
 
+
+void Register::on_Sure_Button_pressed()
+{
+//    ui->Sure_Button->setStyleSheet("border-image: url(:/images/find_btn.png);");
+}
+
+void Register::on_Sure_Button_released()
+{
+    ui->Sure_Button->setStyleSheet("border-image: url(:/images/sure_btn.png);");
+}

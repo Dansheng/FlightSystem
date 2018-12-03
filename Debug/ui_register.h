@@ -89,7 +89,8 @@ public:
         IdCard_Edit->setGeometry(QRect(110, 360, 241, 20));
         Sure_Button = new QPushButton(Register);
         Sure_Button->setObjectName(QStringLiteral("Sure_Button"));
-        Sure_Button->setGeometry(QRect(140, 420, 75, 23));
+        Sure_Button->setGeometry(QRect(120, 410, 111, 51));
+        Sure_Button->setStyleSheet(QStringLiteral("border-image: url(:/images/sure_btn.png);"));
 
         retranslateUi(Register);
 
@@ -106,7 +107,7 @@ public:
         PhoneNumber_Label->setText(QApplication::translate("Register", "\346\211\213\346\234\272\345\217\267\347\240\201", Q_NULLPTR));
         RealName_Label->setText(QApplication::translate("Register", "\347\234\237\345\256\236\345\247\223\345\220\215", Q_NULLPTR));
         IdCard_Label->setText(QApplication::translate("Register", "\350\272\253\344\273\275\350\257\201\345\217\267\347\240\201", Q_NULLPTR));
-        Sure_Button->setText(QApplication::translate("Register", "\347\241\256\350\256\244", Q_NULLPTR));
+        Sure_Button->setText(QString());
     } // retranslateUi
 
 };
