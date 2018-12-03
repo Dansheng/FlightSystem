@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[12];
-    char stringdata0[245];
+    char stringdata0[246];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,7 +42,7 @@ QT_MOC_LITERAL(7, 130, 24), // "on_Order_Button_released"
 QT_MOC_LITERAL(8, 155, 22), // "on_User_Button_clicked"
 QT_MOC_LITERAL(9, 178, 22), // "on_User_Button_pressed"
 QT_MOC_LITERAL(10, 201, 23), // "on_User_Button_released"
-QT_MOC_LITERAL(11, 225, 19) // "on_AddFight_clicked"
+QT_MOC_LITERAL(11, 225, 20) // "on_AddFlight_clicked"
 
     },
     "MainWindow\0on_Find_Button_clicked\0\0"
@@ -50,7 +50,7 @@ QT_MOC_LITERAL(11, 225, 19) // "on_AddFight_clicked"
     "on_Order_Button_clicked\0on_Order_Button_pressed\0"
     "on_Order_Button_released\0"
     "on_User_Button_clicked\0on_User_Button_pressed\0"
-    "on_User_Button_released\0on_AddFight_clicked"
+    "on_User_Button_released\0on_AddFlight_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -109,7 +109,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->on_User_Button_clicked(); break;
         case 7: _t->on_User_Button_pressed(); break;
         case 8: _t->on_User_Button_released(); break;
-        case 9: _t->on_AddFight_clicked(); break;
+        case 9: _t->on_AddFlight_clicked(); break;
         default: ;
         }
     }

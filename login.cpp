@@ -5,7 +5,8 @@
 #include "QLineEdit"
 #include "register.h"
 #include <QDialog>
-#include "QFile"
+#include <QFile>
+#include <QDebug>
 Login::Login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login)
@@ -26,8 +27,16 @@ void Login::on_Login_Button_clicked()
     QString UserName=ui->UserName_Edit->text().trimmed(); // 去除用户名输入的空格
     QString PassWord=ui->PassWord_Edit->text();
     // to do： 读取文件 账号和密码
-    if(UserName == "suliangcai" && PassWord == "123456789")
+    if( (UserName == "suliangcai" && PassWord == "123456789") ||(UserName == "liangcai" && PassWord == "123456789"))
     {
+        QFile data("..\\assets\\user\\login.txt");
+        if (data.open(QFile::WriteOnly)) {
+            QTextStream out(&data);
+            out << UserName <<endl;
+            data.flush();
+            data.close();
+        }
+        qDebug() << "success" << endl;
         accept();
     }
     else
@@ -59,5 +68,12 @@ void Login::on_Register_Button_clicked()
 
 void Login::on_Visitor_Button_clicked()
 {
+    QFile data("..\\assets\\user\\login.txt");
+    if (data.open(QFile::WriteOnly)) {
+        QTextStream out(&data);
+        out << "Visitor" <<endl;
+        data.flush();
+        data.close();
+    }
     accept();
 }

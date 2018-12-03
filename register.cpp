@@ -60,14 +60,15 @@ void Register::on_Sure_Button_clicked()
         // issue: 这里使用相对路径原因是工作路径和exe文件构建路径不在一个地方
         // win平台下使用管理员模式打开合适
         QFile data("..\\assets\\user\\user.csv");
-        if (data.open(QFile::WriteOnly | QFile::Append)) {
+        if (data.open(QFile::WriteOnly | QFile::Append))
+        {
+            qDebug() << "successful" << endl;
             QTextStream out(&data);
             out << UserName << "," << PassWord << "," << Place << "," << RealName << "," << PhoneNumber << "," << IdCard <<endl;
             data.flush();
             data.close();
             info="注册成功";
             SentMessage(info);
-
         }
         accept();
     }

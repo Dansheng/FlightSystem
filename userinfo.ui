@@ -13,14 +13,30 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QDial" name="dial">
+  <widget class="QLabel" name="UserName_label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>170</y>
-     <width>50</width>
-     <height>64</height>
+     <x>50</x>
+     <y>60</y>
+     <width>54</width>
+     <height>12</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>用户名:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="UserName">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>60</y>
+     <width>201</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>123333333333333</string>
    </property>
   </widget>
  </widget>
