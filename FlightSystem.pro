@@ -28,28 +28,28 @@ SOURCES += \
         mainwindow.cpp \
     login.cpp \
     register.cpp \
-    findfight.cpp \
     orderquery.cpp \
     userinfo.cpp \
-    addflight.cpp
+    addflight.cpp \
+    findflight.cpp
 
 HEADERS += \
         mainwindow.h \
     login.h \
     register.h \
-    findfight.h \
     orderquery.h \
     userinfo.h \
-    addflight.h
+    addflight.h \
+    findflight.h
 
 FORMS += \
         mainwindow.ui \
     login.ui \
     register.ui \
-    findfight.ui \
     orderquery.ui \
     userinfo.ui \
-    addflight.ui
+    addflight.ui \
+    findflight.ui
 
 RESOURCES += \
     assets/images/images.qrc

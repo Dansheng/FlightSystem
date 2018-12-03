@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QImage>
-#include <findfight.h>
+#include <findflight.h>
 #include <orderquery.h>
 #include <userinfo.h>
 #include <addflight.h>
@@ -20,9 +20,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Find_Button_clicked()
 {
-    FindFight findfight;
+    FindFlight findflight;
     this->hide();
-    findfight.exec();
+    findflight.exec();
     this->show();
 }
 
