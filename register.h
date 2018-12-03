@@ -18,6 +18,10 @@ public:
 private slots:
     void on_Sure_Button_clicked();
 
+    void on_Sure_Button_pressed();
+
+    void on_Sure_Button_released();
+
 private:
     Ui::Register *ui;
 };

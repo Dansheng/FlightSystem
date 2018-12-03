@@ -22,8 +22,14 @@
      <height>12</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="text">
     <string>用户名</string>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::LinksAccessibleByMouse</set>
    </property>
   </widget>
   <widget class="QLabel" name="PassWord_Label">
@@ -113,6 +119,12 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
   </widget>
   <widget class="QLineEdit" name="PassWord_Edit">
    <property name="geometry">
@@ -177,14 +189,17 @@
   <widget class="QPushButton" name="Sure_Button">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>420</y>
-     <width>75</width>
-     <height>23</height>
+     <x>120</x>
+     <y>410</y>
+     <width>111</width>
+     <height>51</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/images/sure_btn.png);</string>
+   </property>
    <property name="text">
-    <string>确认</string>
+    <string/>
    </property>
   </widget>
  </widget>
