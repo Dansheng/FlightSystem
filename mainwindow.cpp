@@ -4,7 +4,7 @@
 #include <findfight.h>
 #include <orderquery.h>
 #include <userinfo.h>
-#include <addfight.h>
+#include <addflight.h>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -73,10 +73,10 @@ void MainWindow::on_User_Button_released()
     ui->User_Button->setStyleSheet("border-image: url(:/images/user_btn.png);");
 }
 
-void MainWindow::on_AddFight_clicked()
+void MainWindow::on_AddFlight_clicked()
 {
-    AddFight addfight;
+    AddFlight addflight;
     this->hide();
-    addfight.exec();
+    addflight.exec();
     this->show();
 }

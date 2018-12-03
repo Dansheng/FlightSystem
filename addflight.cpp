@@ -1,13 +1,13 @@
-#include "addfight.h"
-#include "ui_addfight.h"
+#include "addflight.h"
+#include "ui_addflight.h"
 #include <QString>
 #include <QMessageBox>
 #include <QDebug>
 #include <QFile>
 #include <QLine.h>
-AddFight::AddFight(QWidget *parent) :
+AddFlight::AddFlight(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddFight)
+    ui(new Ui::AddFlight)
 {
     ui->setupUi(this);
     ui->TimeStart->setDisplayFormat("yyyy.MM.dd HH:mm:ss");
@@ -21,14 +21,14 @@ void SentMessage_(QString info)
     warning.addButton("确定",QMessageBox::ActionRole);
     warning.exec();
 }
-AddFight::~AddFight()
+AddFlight::~AddFlight()
 {
 
 
     delete ui;
 }
 
-void AddFight::on_pushButton_clicked()
+void AddFlight::on_pushButton_clicked()
 {
     // read the data
     QString CityStart=ui->CityStart_Line->text();
