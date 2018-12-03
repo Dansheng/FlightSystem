@@ -49,7 +49,7 @@ void Register::on_Sure_Button_clicked()
     }
     else if(PhoneNumber.length()!=11)
     {
-        info="您的手机号输入有误";
+        info="您的手机号输入有误,请重新输入";
         SentMessage(info);
     }
     else
