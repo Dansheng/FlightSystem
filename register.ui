@@ -19,7 +19,7 @@
      <x>40</x>
      <y>120</y>
      <width>54</width>
-     <height>12</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -41,6 +41,9 @@
      <height>12</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;方正字迹-颜振东楷 简&quot;;</string>
+   </property>
    <property name="text">
     <string>密码</string>
    </property>
@@ -53,6 +56,9 @@
      <width>54</width>
      <height>12</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;方正字迹-颜振东楷 简&quot;;</string>
    </property>
    <property name="text">
     <string>确认密码</string>
@@ -67,6 +73,9 @@
      <height>12</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;方正字迹-颜振东楷 简&quot;;</string>
+   </property>
    <property name="text">
     <string>常驻地</string>
    </property>
@@ -79,6 +88,9 @@
      <width>54</width>
      <height>12</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;方正字迹-颜振东楷 简&quot;;</string>
    </property>
    <property name="text">
     <string>手机号码</string>
@@ -93,6 +105,9 @@
      <height>12</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;方正字迹-颜振东楷 简&quot;;</string>
+   </property>
    <property name="text">
     <string>真实姓名</string>
    </property>
@@ -105,6 +120,9 @@
      <width>71</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;方正字迹-颜振东楷 简&quot;;</string>
    </property>
    <property name="text">
     <string>身份证号码</string>
@@ -189,10 +207,10 @@
   <widget class="QPushButton" name="Sure_Button">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>410</y>
-     <width>111</width>
-     <height>51</height>
+     <x>170</x>
+     <y>450</y>
+     <width>71</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
