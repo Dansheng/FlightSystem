@@ -1,5 +1,5 @@
 #ifndef ADDFLIGHT_H
-#define ADDFlIGHT_H
+#define ADDFLIGHT_H
 
 #include <QDialog>
 
