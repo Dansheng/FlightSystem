@@ -34,24 +34,76 @@ void Register::on_Sure_Button_clicked()
 {
     // read the data
     QString UserName=ui->UserName_Edit->text().trimmed();
-    QString PassWord=ui->PassWordTwo_Edit->text();
-    QString PassWordTwo=ui->PassWordTwo_Edit->text();
+    QString PassWord=ui->PassWord_Edit->text();
     QString Place=ui->Place_Edit->text();
+    QString PassWordTwo=ui->PassWordTwo_Edit->text();
     QString PhoneNumber=ui->PhoneNumber_Edit->text();
     QString IdCard=ui->IdCard_Edit->text();
     QString RealName=ui->RealName_Edit->text();
     //declare the warning windows
     QString info;
     // to do: 完善表单验证
-    if(PassWord!=PassWordTwo)
+    //用户名校验
+
+    if(UserName.length()==0)
+    {
+        info="用户名不能为空";
+        SentMessage(info);
+    }
+
+//    else
+//    {
+//            QByteArray ba=UserName.toLatin1();//QString 转换为 char*
+//            const char *s=ba.data();
+//              int len=0;
+//            for(*s;*s;s++)
+//            {
+//                if(*s<'0'&&*s>'9'&&*s!='_'&&*s<'a'&&*s>'z'&&*s>'Z'&&*s<'A')
+//                {
+//                    info="用户名仅支持中英文、数字和下划线";
+//                    SentMessage(info);
+//                }
+//            }
+//            while(*s&&*s>='0'&&*s<='9') {len++;s++;}
+//            if(len==UserName.length)//是纯数字
+//            {
+//                info="用户名不能为纯数字";
+//                SentMessage(info);
+//            }
+//    }
+    else if(PassWord.length()==0)
+    {
+        info="密码不能为空";
+        SentMessage(info);
+    }
+    else if(PassWord!=PassWordTwo)
     {
         info="您输入的两次密码不同";
+        SentMessage(info);
+    }
+    else if(PhoneNumber.length()==0)
+    {
+        info="手机号码不能为空";
         SentMessage(info);
     }
     else if(PhoneNumber.length()!=11)
     {
         info="您的手机号输入有误,请重新输入";
         SentMessage(info);
+    }
+    else if(PhoneNumber.mid(0,2)!="13")
+    {
+        if(PhoneNumber.mid(0,2)!="18")
+        {
+            if(PhoneNumber.mid(0,2)!="15"||PhoneNumber.mid(0,3)=="154")
+            {
+                if(PhoneNumber.mid(0,3)!="145"&&PhoneNumber.mid(0,3)!="147")
+                {
+                    info="您的手机号不合法,请重新输入";
+                    SentMessage(info);
+                }
+            }
+        }
     }
     else
     {
