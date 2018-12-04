@@ -7,14 +7,41 @@
 #include <QDialog>
 #include <QFile>
 #include <QDebug>
+#include <QFontDatabase> // 为了使用fontawesome
 Login::Login(QWidget *parent) :
     QDialog(parent),
+    // QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
     ui(new Ui::Login)
 {
     ui->setupUi(this);
-    ui->Login_Button->setText("登陆");
+    ui->UserName_Edit->setPlaceholderText(" 请 输 入 用 户 名"); // 占位符
+    ui->PassWord_Edit->setPlaceholderText(" 请 输 入  密  码"); // 占位符
+    // 美化
+    ui->UserName_Edit->setStyleSheet("border: 1px solid rgb(125, 125, 125)");    // 边框
+    ui->PassWord_Edit->setStyleSheet("border: 1px solid rgb(125, 125, 125)");    // 边框
+    ui->UserName_Edit->setStyleSheet("border-radius:5px");// 圆角
+    ui->PassWord_Edit->setStyleSheet("border-radius:5px");// 圆角
+    //
     ui->PassWord_Edit->setEchoMode(QLineEdit::Password);// 将密码框改为加密模式(输入时则为加密模式）
                                                         // QLineEdit::PasswordEchoOnEdit 则为输入结束后隐藏字符串
+    // 添加字体文件
+    int fontId = QFontDatabase::addApplicationFont("..\\assets\\font\\fontawesome-webfont.ttf");
+    QStringList fontFamilies = QFontDatabase::applicationFontFamilies(fontId);
+    qDebug() << "fontFamilies.size() " << fontFamilies.size();
+
+    // 创建字体
+    QFont font;
+    font.setFamily(fontFamilies.at(0));
+    font.setPointSize(16);
+    ui->UserName_Label->setFont(font);
+    ui->UserName_Label->setText(QChar(0xf2c0));
+    ui->UserName_Label->setStyleSheet("color: rgb(16, 89, 179);");
+    font.setPointSize(16);
+    ui->PassWord_Label->setFont(font);
+    ui->PassWord_Label->setText(QChar(0xf2dd));
+    ui->PassWord_Label->setStyleSheet("color: rgb(16, 89, 179);");
+
+
 }
 
 Login::~Login()

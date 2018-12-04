@@ -8,5 +8,6 @@
         <file>findpress_btn.png</file>
         <file>userpress_btn.png</file>
         <file>sure_btn.png</file>
+        <file>login_btn.png</file>
     </qresource>
 </RCC>
