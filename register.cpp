@@ -62,7 +62,7 @@ void Register::on_Sure_Button_clicked()
         QFile data("..\\assets\\user\\user.csv");
         if (data.open(QFile::WriteOnly | QFile::Append))
         {
-            qDebug() << "successful" << endl;
+            qDebug() << "successful!!" << endl;
             QTextStream out(&data);
             out << UserName << "," << PassWord << "," << Place << "," << RealName << "," << PhoneNumber << "," << IdCard <<endl;
             data.flush();
