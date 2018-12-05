@@ -24,23 +24,6 @@ Login::Login(QWidget *parent) :
     //
     ui->PassWord_Edit->setEchoMode(QLineEdit::Password);// 将密码框改为加密模式(输入时则为加密模式）
                                                         // QLineEdit::PasswordEchoOnEdit 则为输入结束后隐藏字符串
-    // 添加字体文件
-    int fontId = QFontDatabase::addApplicationFont("..\\assets\\font\\fontawesome-webfont.ttf");
-    QStringList fontFamilies = QFontDatabase::applicationFontFamilies(fontId);
-    qDebug() << "fontFamilies.size() " << fontFamilies.size();
-
-    // 创建字体
-    QFont font;
-    font.setFamily(fontFamilies.at(0));
-    font.setPointSize(16);
-    ui->UserName_Label->setFont(font);
-    ui->UserName_Label->setText(QChar(0xf2c0));
-    ui->UserName_Label->setStyleSheet("color: rgb(16, 89, 179);");
-    font.setPointSize(16);
-    ui->PassWord_Label->setFont(font);
-    ui->PassWord_Label->setText(QChar(0xf2dd));
-    ui->PassWord_Label->setStyleSheet("color: rgb(16, 89, 179);");
-
 
 }
 
