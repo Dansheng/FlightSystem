@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QFile>
 UserInfo::UserInfo(QWidget *parent) :
-    QDialog(parent),
+    QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
     ui(new Ui::UserInfo)
 {
     ui->setupUi(this);
@@ -13,7 +13,6 @@ UserInfo::UserInfo(QWidget *parent) :
         QString Name=in.readLine();
         if(Name=="Visitor")
         {
-            ui->UserName_label->hide();
             ui->UserName->setText("您好，您是游客登陆");
         }
         else{
@@ -29,4 +28,10 @@ UserInfo::UserInfo(QWidget *parent) :
 UserInfo::~UserInfo()
 {
     delete ui;
+}
+
+
+void UserInfo::on_Close_clicked()
+{
+    close();
 }

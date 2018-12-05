@@ -15,6 +15,9 @@ public:
     explicit UserInfo(QWidget *parent = 0);
     ~UserInfo();
 
+private slots:
+    void on_Close_clicked();
+
 private:
     Ui::UserInfo *ui;
 };
