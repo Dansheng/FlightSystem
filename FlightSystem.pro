@@ -52,4 +52,5 @@ FORMS += \
     findflight.ui
 
 RESOURCES += \
-    assets/images/images.qrc
+    assets/images/images.qrc \
+    assets/font/font.qrc
