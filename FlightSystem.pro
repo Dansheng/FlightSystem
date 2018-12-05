@@ -53,3 +53,5 @@ FORMS += \
 
 RESOURCES += \
     assets/images/images.qrc
+
+DISTFILES +=

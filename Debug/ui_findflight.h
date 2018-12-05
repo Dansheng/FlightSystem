@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'findflight.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.6
+** Created by: Qt User Interface Compiler version 5.11.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_FINDFLIGHT_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 
@@ -68,11 +65,11 @@ public:
 
     void retranslateUi(QDialog *FindFlight)
     {
-        FindFlight->setWindowTitle(QApplication::translate("FindFlight", "Dialog", Q_NULLPTR));
-        label->setText(QApplication::translate("FindFlight", "\345\207\272\345\217\221\345\237\216\345\270\202", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("FindFlight", "\346\237\245\350\257\242", Q_NULLPTR));
-        label_2->setText(QApplication::translate("FindFlight", "\345\210\260\350\276\276\345\237\216\345\270\202", Q_NULLPTR));
-        label_3->setText(QApplication::translate("FindFlight", "\345\207\272\345\217\221\346\227\245\346\234\237", Q_NULLPTR));
+        FindFlight->setWindowTitle(QApplication::translate("FindFlight", "Dialog", nullptr));
+        label->setText(QApplication::translate("FindFlight", "\345\207\272\345\217\221\345\237\216\345\270\202", nullptr));
+        pushButton->setText(QApplication::translate("FindFlight", "\346\237\245\350\257\242", nullptr));
+        label_2->setText(QApplication::translate("FindFlight", "\345\210\260\350\276\276\345\237\216\345\270\202", nullptr));
+        label_3->setText(QApplication::translate("FindFlight", "\345\207\272\345\217\221\346\227\245\346\234\237", nullptr));
     } // retranslateUi
 
 };

@@ -65,6 +65,7 @@ void Register::on_Sure_Button_clicked()
         SentMessage(info);
         qDebug() << "2" << endl;
     }
+    //密码校验
     else if(PassWord.length()==0)
     {
         info="密码不能为空";
@@ -77,6 +78,7 @@ void Register::on_Sure_Button_clicked()
         SentMessage(info);
         qDebug() << "4" << endl;
     }
+    //真实姓名
     else if(RealName.length()==0)
     {
         info="真实姓名不能为空";
@@ -88,6 +90,7 @@ void Register::on_Sure_Button_clicked()
         info="真实姓名不合法";
         SentMessage(info);
     }
+    //手机号码
     else if(PhoneNumber.length()==0)
     {
         info="手机号码不能为空";
@@ -106,6 +109,7 @@ void Register::on_Sure_Button_clicked()
         SentMessage(info);
         qDebug() << "9" << endl;
     }
+    //身份证号码
     else if(IdCard.length()!=18)
     {
         info="身份证号码不合法";
@@ -142,5 +146,5 @@ void Register::on_Sure_Button_pressed()
 
 void Register::on_Sure_Button_released()
 {
-    ui->Sure_Button->setStyleSheet("border-image: url(:/images/sure_btn.png);");
+//   ui->Sure_Button->setStyleSheet("border-image: url(:/images/sure_btn.png);");
 }

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addflight.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.6
+** Created by: Qt User Interface Compiler version 5.11.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,12 +10,9 @@
 #define UI_ADDFLIGHT_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -127,24 +124,24 @@ public:
 
     void retranslateUi(QDialog *AddFlight)
     {
-        AddFlight->setWindowTitle(QApplication::translate("AddFlight", "Dialog", Q_NULLPTR));
-        AddFight_label->setText(QApplication::translate("AddFlight", "\346\267\273\345\212\240\350\210\252\347\217\255\344\277\241\346\201\257", Q_NULLPTR));
-        CityStart_label->setText(QApplication::translate("AddFlight", "\345\207\272\345\217\221\345\237\216\345\270\202", Q_NULLPTR));
-        CityEnd_label->setText(QApplication::translate("AddFlight", "\345\210\260\350\276\276\345\237\216\345\270\202", Q_NULLPTR));
-        FightNumber_label->setText(QApplication::translate("AddFlight", "\350\210\252\347\217\255\345\217\267", Q_NULLPTR));
+        AddFlight->setWindowTitle(QApplication::translate("AddFlight", "Dialog", nullptr));
+        AddFight_label->setText(QApplication::translate("AddFlight", "\346\267\273\345\212\240\350\210\252\347\217\255\344\277\241\346\201\257", nullptr));
+        CityStart_label->setText(QApplication::translate("AddFlight", "\345\207\272\345\217\221\345\237\216\345\270\202", nullptr));
+        CityEnd_label->setText(QApplication::translate("AddFlight", "\345\210\260\350\276\276\345\237\216\345\270\202", nullptr));
+        FightNumber_label->setText(QApplication::translate("AddFlight", "\350\210\252\347\217\255\345\217\267", nullptr));
         PlaneNumber_Line->setText(QString());
-        PlaneNumber_label->setText(QApplication::translate("AddFlight", "\351\243\236\346\234\272\345\217\267", Q_NULLPTR));
-        TimeStart_label->setText(QApplication::translate("AddFlight", "\351\242\204\350\256\241\350\265\267\351\243\236\346\227\266\351\227\264", Q_NULLPTR));
-        TimeEnd_label->setText(QApplication::translate("AddFlight", "\351\242\204\350\256\241\345\210\260\350\276\276\346\227\266\351\227\264", Q_NULLPTR));
-        Price_label->setText(QApplication::translate("AddFlight", "\347\245\250\344\273\267", Q_NULLPTR));
+        PlaneNumber_label->setText(QApplication::translate("AddFlight", "\351\243\236\346\234\272\345\217\267", nullptr));
+        TimeStart_label->setText(QApplication::translate("AddFlight", "\351\242\204\350\256\241\350\265\267\351\243\236\346\227\266\351\227\264", nullptr));
+        TimeEnd_label->setText(QApplication::translate("AddFlight", "\351\242\204\350\256\241\345\210\260\350\276\276\346\227\266\351\227\264", nullptr));
+        Price_label->setText(QApplication::translate("AddFlight", "\347\245\250\344\273\267", nullptr));
         Price_Line->setText(QString());
-        Discount_label->setText(QApplication::translate("AddFlight", "\346\212\230\346\211\243", Q_NULLPTR));
+        Discount_label->setText(QApplication::translate("AddFlight", "\346\212\230\346\211\243", nullptr));
         Discout_Line->setText(QString());
-        PeopleNumber_label->setText(QApplication::translate("AddFlight", "\344\271\230\345\221\230\345\256\232\351\242\235", Q_NULLPTR));
+        PeopleNumber_label->setText(QApplication::translate("AddFlight", "\344\271\230\345\221\230\345\256\232\351\242\235", nullptr));
         PeopleNumber_Line->setText(QString());
-        TicketLeft_Label->setText(QApplication::translate("AddFlight", "\344\275\231\347\245\250\351\207\217", Q_NULLPTR));
+        TicketLeft_Label->setText(QApplication::translate("AddFlight", "\344\275\231\347\245\250\351\207\217", nullptr));
         TicketLeft_Line->setText(QString());
-        pushButton->setText(QApplication::translate("AddFlight", "\346\267\273\345\212\240", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("AddFlight", "\346\267\273\345\212\240", nullptr));
     } // retranslateUi
 
 };

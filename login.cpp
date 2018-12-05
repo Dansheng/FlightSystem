@@ -16,17 +16,10 @@ Login::Login(QWidget *parent) :
     ui->setupUi(this);
     ui->UserName_Edit->setPlaceholderText(" 请 输 入 用 户 名"); // 占位符
     ui->PassWord_Edit->setPlaceholderText(" 请 输 入  密  码"); // 占位符
-    // 美化
-    ui->UserName_Edit->setStyleSheet("border: 1px solid rgb(125, 125, 125)");    // 边框
-    ui->PassWord_Edit->setStyleSheet("border: 1px solid rgb(125, 125, 125)");    // 边框
-    ui->UserName_Edit->setStyleSheet("border-radius:5px");// 圆角
-    ui->PassWord_Edit->setStyleSheet("border-radius:5px");// 圆角
-    //
     ui->PassWord_Edit->setEchoMode(QLineEdit::Password);// 将密码框改为加密模式(输入时则为加密模式）
                                                         // QLineEdit::PasswordEchoOnEdit 则为输入结束后隐藏字符串
 
 }
-
 Login::~Login()
 {
     delete ui;

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orderquery.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.6
+** Created by: Qt User Interface Compiler version 5.11.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,8 @@
 #define UI_ORDERQUERY_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 
 QT_BEGIN_NAMESPACE
@@ -40,8 +37,8 @@ public:
 
     void retranslateUi(QDialog *OrderQuery)
     {
-        OrderQuery->setWindowTitle(QApplication::translate("OrderQuery", "Dialog", Q_NULLPTR));
-        label->setText(QApplication::translate("OrderQuery", "\350\256\242\345\215\225\346\237\245\350\257\242", Q_NULLPTR));
+        OrderQuery->setWindowTitle(QApplication::translate("OrderQuery", "Dialog", nullptr));
+        label->setText(QApplication::translate("OrderQuery", "\350\256\242\345\215\225\346\237\245\350\257\242", nullptr));
     } // retranslateUi
 
 };

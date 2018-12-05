@@ -9,5 +9,7 @@
         <file>userpress_btn.png</file>
         <file>sure_btn.png</file>
         <file>login_btn.png</file>
+        <file>User_Label.png</file>
+        <file>password_Label.png</file>
     </qresource>
 </RCC>
