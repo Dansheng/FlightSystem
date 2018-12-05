@@ -11,5 +11,8 @@
         <file>login_btn.png</file>
         <file>User_Label.png</file>
         <file>password_Label.png</file>
+        <file>background_label.jpg</file>
+        <file>login_bg.jpg</file>
+        <file>login_bg.png</file>
     </qresource>
 </RCC>

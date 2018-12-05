@@ -8,14 +8,17 @@
 #include <QFile>
 #include <QDebug>
 #include <QFontDatabase> // 为了使用fontawesome
+#include <QPalette>
 Login::Login(QWidget *parent) :
-    QDialog(parent),
-    // QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
+//    QDialog(parent),
+     QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
     ui(new Ui::Login)
 {
     ui->setupUi(this);
+    setAutoFillBackground(false);
+    setAttribute(Qt::WA_TranslucentBackground, true);
     ui->UserName_Edit->setPlaceholderText(" 请 输 入 用 户 名"); // 占位符
-    ui->PassWord_Edit->setPlaceholderText(" 请 输 入  密  码"); // 占位符
+    ui->PassWord_Edit->setPlaceholderText(" 请 输 入 密 码"); // 占位符
     ui->PassWord_Edit->setEchoMode(QLineEdit::Password);// 将密码框改为加密模式(输入时则为加密模式）
                                                         // QLineEdit::PasswordEchoOnEdit 则为输入结束后隐藏字符串
 
@@ -79,4 +82,9 @@ void Login::on_Visitor_Button_clicked()
         data.close();
     }
     accept();
+}
+
+void Login::on_Close_btn_clicked()
+{
+    close();
 }
