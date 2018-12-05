@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>474</width>
-    <height>631</height>
+    <width>678</width>
+    <height>716</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -125,7 +125,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>260</y>
+     <y>250</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -138,7 +138,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>310</y>
+     <y>290</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -147,31 +147,11 @@
     <string>预计到达时间</string>
    </property>
   </widget>
-  <widget class="QDateTimeEdit" name="TimeStart">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>280</y>
-     <width>194</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QDateTimeEdit" name="TimeEnd">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>320</y>
-     <width>194</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="Price_label">
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>360</y>
+     <y>370</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -184,7 +164,7 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>370</y>
+     <y>380</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -197,7 +177,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>410</y>
+     <y>420</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -210,7 +190,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>420</y>
+     <y>430</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -223,7 +203,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>460</y>
+     <y>470</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -236,7 +216,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>470</y>
+     <y>480</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -249,7 +229,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>510</y>
+     <y>520</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -262,7 +242,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>520</y>
+     <y>530</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -275,13 +255,140 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>570</y>
+     <y>580</y>
      <width>93</width>
      <height>28</height>
     </rect>
    </property>
    <property name="text">
     <string>添加</string>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="TimeStart">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>270</y>
+     <width>118</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="TimeEnd">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>310</y>
+     <width>118</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TimeEnd_label_2">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>330</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>周期</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Monday">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>350</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>周一</string>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Tuesday">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>350</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>周二</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Wednesday">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>350</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>周三</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Thursday">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>350</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>周四</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Friday">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>350</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>周五</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Sunday">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>350</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>周日</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Saturday">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>350</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>周六</string>
    </property>
   </widget>
  </widget>
