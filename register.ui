@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">
 /*登录按钮样式*/
-#pushButton{
+#Sure_Button{
 	border-radius:4px;
 	border:none;
 	background-color: #09A3DC;
@@ -24,7 +24,7 @@
 }
 
 /*登录按钮鼠标悬停样式*/
-#pushButton:hover{
+#Sure_Button:hover{
 	background-color:rgb(60,195,245);
 }
 /*输入框悬停样式*/
@@ -121,14 +121,21 @@
   <widget class="QLabel" name="UserName_Label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>60</x>
      <y>120</y>
-     <width>54</width>
+     <width>41</width>
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Songti SC</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 8pt &quot;Arial&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>用户名</string>
@@ -140,15 +147,21 @@
   <widget class="QLabel" name="PassWord_Label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>70</x>
      <y>160</y>
-     <width>54</width>
-     <height>12</height>
+     <width>31</width>
+     <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Songti SC</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 8pt &quot;Arial&quot;;
-</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>密码</string>
@@ -157,14 +170,21 @@
   <widget class="QLabel" name="PassWordTwo_Label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>50</x>
      <y>200</y>
-     <width>54</width>
-     <height>12</height>
+     <width>51</width>
+     <height>21</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Songti SC</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 8pt &quot;Arial&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>确认密码</string>
@@ -173,14 +193,23 @@
   <widget class="QLabel" name="Place_Label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>60</x>
      <y>240</y>
-     <width>54</width>
-     <height>12</height>
+     <width>41</width>
+     <height>21</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Songti SC</family>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 8pt &quot;Arial&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>常驻地</string>
@@ -189,14 +218,21 @@
   <widget class="QLabel" name="PhoneNumber_Label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>50</x>
      <y>320</y>
      <width>54</width>
-     <height>12</height>
+     <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Songti SC</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 8pt &quot;Arial&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>手机号码</string>
@@ -205,14 +241,21 @@
   <widget class="QLabel" name="RealName_Label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>50</x>
      <y>280</y>
-     <width>54</width>
-     <height>12</height>
+     <width>52</width>
+     <height>19</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Songti SC</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 8pt &quot;Arial&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>真实姓名</string>
@@ -227,8 +270,15 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Songti SC</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 8pt &quot;Arial&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>身份证号码</string>
@@ -314,15 +364,50 @@
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>440</y>
+     <y>430</y>
      <width>93</width>
      <height>28</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 13pt &quot;Songti SC&quot;;</string>
    </property>
    <property name="text">
     <string>注册</string>
    </property>
   </widget>
+  <widget class="QLabel" name="Backgroud_Label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>401</width>
+     <height>551</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/BackgroudTwo.jpeg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>Backgroud_Label</zorder>
+  <zorder>UserName_Label</zorder>
+  <zorder>PassWord_Label</zorder>
+  <zorder>PassWordTwo_Label</zorder>
+  <zorder>Place_Label</zorder>
+  <zorder>PhoneNumber_Label</zorder>
+  <zorder>RealName_Label</zorder>
+  <zorder>IdCard_Label</zorder>
+  <zorder>UserName_Edit</zorder>
+  <zorder>PassWord_Edit</zorder>
+  <zorder>PassWordTwo_Edit</zorder>
+  <zorder>Place_Edit</zorder>
+  <zorder>RealName_Edit</zorder>
+  <zorder>PhoneNumber_Edit</zorder>
+  <zorder>IdCard_Edit</zorder>
+  <zorder>Sure_Button</zorder>
  </widget>
  <resources/>
  <connections/>
