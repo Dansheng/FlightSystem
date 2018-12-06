@@ -10,8 +10,8 @@
 #include <QFontDatabase> // 为了使用fontawesome
 #include <QPalette>
 Login::Login(QWidget *parent) :
-//    QDialog(parent),
-     QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
+    QDialog(parent),
+//     QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
     ui(new Ui::Login)
 {
     ui->setupUi(this);
@@ -82,9 +82,4 @@ void Login::on_Visitor_Button_clicked()
         data.close();
     }
     accept();
-}
-
-void Login::on_Close_btn_clicked()
-{
-    close();
 }

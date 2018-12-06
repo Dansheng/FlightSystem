@@ -3,7 +3,8 @@
 #include <QDebug>
 #include <QFile>
 UserInfo::UserInfo(QWidget *parent) :
-    QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
+    QDialog(parent),
+//    QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
     ui(new Ui::UserInfo)
 {
     ui->setupUi(this);
@@ -30,8 +31,3 @@ UserInfo::~UserInfo()
     delete ui;
 }
 
-
-void UserInfo::on_Close_clicked()
-{
-    close();
-}

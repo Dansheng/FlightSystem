@@ -22,7 +22,6 @@ private slots: // 信号
 
     void on_Visitor_Button_clicked();
 
-    void on_Close_btn_clicked();
 
 private:
     Ui::Login *ui;

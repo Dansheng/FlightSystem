@@ -16,5 +16,12 @@
         <file>login_bg.png</file>
         <file>white.jpg</file>
         <file>BackgroudTwo.jpeg</file>
+        <file>Photo.png</file>
+        <file>Top.jpeg</file>
+        <file>Password_Black.png</file>
+        <file>User_Black.png</file>
+        <file>Backgroud_Regist.jpeg</file>
+        <file>Backgroud_userinfo.jpeg</file>
+        <file>Backgroud_Userinfo.jpeg</file>
     </qresource>
 </RCC>

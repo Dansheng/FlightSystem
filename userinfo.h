@@ -16,7 +16,7 @@ public:
     ~UserInfo();
 
 private slots:
-    void on_Close_clicked();
+
 
 private:
     Ui::UserInfo *ui;

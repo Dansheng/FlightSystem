@@ -6,17 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>587</width>
-    <height>361</height>
+    <width>388</width>
+    <height>429</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>388</width>
+    <height>429</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>388</width>
+    <height>429</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">Login{
-	backgroud-color:#fff;
-}
+   <string notr="true">
 #UserName_Edit{
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -46,45 +56,68 @@
 #Login_Button{
 	border-radius:10px;
 	border:none;
-	background-color: #09A3DC;
+	background-color: rgb(37,88,184);
 	color:#fff;
 }
 
 /*登录按钮鼠标悬停样式*/
 #Login_Button:hover{
-	background-color:rgb(60,195,245);
+	background-color:rgb(57,159,227);
 }
-/*登录按钮样式*/
+/*游客进入按钮样式*/
 #Visitor_Button{
 	border-radius:4px;
 	border:none;
-	background-color: #09A3DC;
-	color:#fff;
+	background-color: none;
+	color:rgb(51,151,224);
 }
 
-/*登录按钮鼠标悬停样式*/
+/*游客进入按钮鼠标悬停样式*/
 #Visitor_Button:hover{
-	background-color:rgb(60,195,245);
+	background-color:none;
+	color:rgb(43,58,141);
 }
-/*登录按钮样式*/
+/*注册按钮样式*/
 #Register_Button{
 	border-radius:4px;
 	border:none;
-	background-color: #09A3DC;
-	color:#fff;
+	background-color: none;
+	color:rgb(51,151,224);
 }
 
-/*登录按钮鼠标悬停样式*/
+/*注册按钮鼠标悬停样式*/
 #Register_Button:hover{
-	background-color:rgb(60,195,245);
+	background-color:none;
+	color:rgb(43,58,141);
 }
-</string>
+
+
+
+/*关闭按钮样式*/
+#Close_btn{
+	/*border-radius:9px;*/
+	border:none;
+	background-color: none;
+	color:rgb(155,155,155);
+}
+
+/*关闭按钮鼠标悬停样式*/
+#Close_btn:hover{
+	background-color:none;
+	color:rgb(0,0,0);
+}
+
+
+/*底部*/
+#Bottom{
+	background-color:rgb(246,246,246)
+}</string>
   </property>
   <widget class="QLineEdit" name="UserName_Edit">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>90</y>
+     <x>80</x>
+     <y>230</y>
      <width>211</width>
      <height>31</height>
     </rect>
@@ -96,8 +129,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>150</y>
+     <x>80</x>
+     <y>280</y>
      <width>211</width>
      <height>31</height>
     </rect>
@@ -109,10 +142,10 @@
   <widget class="QPushButton" name="Register_Button">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>200</y>
-     <width>75</width>
-     <height>23</height>
+     <x>290</x>
+     <y>230</y>
+     <width>51</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -122,10 +155,10 @@
   <widget class="QPushButton" name="Visitor_Button">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>90</y>
-     <width>91</width>
-     <height>41</height>
+     <x>290</x>
+     <y>280</y>
+     <width>71</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -135,8 +168,8 @@
   <widget class="QPushButton" name="Login_Button">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>200</y>
+     <x>130</x>
+     <y>350</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -152,14 +185,14 @@ font: 12pt &quot;Arial&quot;;</string>
   <widget class="QLabel" name="UserName_Label">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>95</y>
-     <width>31</width>
-     <height>21</height>
+     <x>50</x>
+     <y>230</y>
+     <width>21</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/images/User_Label.png);</string>
+    <string notr="true">image: url(:/images/User_Black.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -168,14 +201,14 @@ font: 12pt &quot;Arial&quot;;</string>
   <widget class="QLabel" name="PassWord_Label">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>155</y>
-     <width>31</width>
-     <height>21</height>
+     <x>50</x>
+     <y>280</y>
+     <width>21</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/images/password_Label.png);</string>
+    <string notr="true">image: url(:/images/Password_Black.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -184,35 +217,33 @@ font: 12pt &quot;Arial&quot;;</string>
   <widget class="QLabel" name="Background_Label">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>20</y>
-     <width>551</width>
-     <height>281</height>
+     <x>50</x>
+     <y>-30</y>
+     <width>271</width>
+     <height>271</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/images/login_bg.png);</string>
+    <string notr="true">image: url(:/images/Top.jpeg);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="Close_btn">
+  <widget class="QLabel" name="Bottom">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>30</y>
-     <width>31</width>
-     <height>31</height>
+     <x>-20</x>
+     <y>-50</y>
+     <width>461</width>
+     <height>551</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">backgroud:transparent</string>
-   </property>
    <property name="text">
-    <string>×</string>
+    <string/>
    </property>
   </widget>
+  <zorder>Bottom</zorder>
   <zorder>Background_Label</zorder>
   <zorder>UserName_Edit</zorder>
   <zorder>PassWord_Edit</zorder>
@@ -221,7 +252,6 @@ font: 12pt &quot;Arial&quot;;</string>
   <zorder>Login_Button</zorder>
   <zorder>UserName_Label</zorder>
   <zorder>PassWord_Label</zorder>
-  <zorder>Close_btn</zorder>
  </widget>
  <resources/>
  <connections/>
