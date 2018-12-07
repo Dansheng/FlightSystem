@@ -16,8 +16,19 @@
   <property name="styleSheet">
    <string notr="true">#TableView{
 	color:white;
-    background-color: rgb(108, 108, 108);
-}</string>
+    background-color: rgb(65,105,225);
+}
+QHeaderView {
+    color: black;
+    font: bold 10pt;
+    background-color: rgb(108, 108, 108);/*设置表头空白区域背景色*/
+    border: 0px solid rgb(144, 144, 144);
+    border:0px solid rgb(191,191,191);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-radius:0px;
+    min-height:29px;
+} </string>
   </property>
   <widget class="QLabel" name="CityStart_Label">
    <property name="geometry">
@@ -109,7 +120,7 @@
     <rect>
      <x>310</x>
      <y>30</y>
-     <width>891</width>
+     <width>801</width>
      <height>591</height>
     </rect>
    </property>

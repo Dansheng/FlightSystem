@@ -2,6 +2,7 @@
 #define FINDFLIGHT_H
 
 #include <QDialog>
+#include <QTableView>
 
 namespace Ui {
 class FindFlight;
