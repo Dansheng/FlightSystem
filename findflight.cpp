@@ -2,7 +2,8 @@
 #include "ui_findflight.h"
 #include "QFile"
 #include "QDebug"
-#include <QTextCodec>
+#include <QTextCodec>  // 用于文件转码，解决乱码问题
+#include <QStandardItemModel>  // TableView 控件
 typedef struct AirInfoNode{
     QString StartPla;//始发站
     QString EndPla;//终点站
@@ -48,6 +49,18 @@ FindFlight::FindFlight(QWidget *parent) :
     ui->CityStart_ComboBox->addItem(tr("上海虹桥"));
     ui->CityStart_ComboBox->addItem(tr("深圳"));
     ui->CityStart_ComboBox->addItem(tr("广东"));
+    //TableView
+    QStandardItemModel *model = new QStandardItemModel();
+    model->setColumnCount(8);
+    model->setHeaderData(0,Qt::Horizontal,"航班号");
+    model->setHeaderData(1,Qt::Horizontal,"出发城市");
+    model->setHeaderData(2,Qt::Horizontal,"到达城市");
+    model->setHeaderData(3,Qt::Horizontal,"出发时间");
+    model->setHeaderData(4,Qt::Horizontal,"到达时间");
+    model->setHeaderData(5,Qt::Horizontal,"折后票价");
+    model->setHeaderData(6,Qt::Horizontal,"折扣");
+    model->setHeaderData(7,Qt::Horizontal,"余票");
+    ui->TableView->setModel(model);
     ReadData();
 }
 //读取csv文件中的信息，将其串成一个单链表
@@ -104,14 +117,10 @@ void ReadData()
     qDebug() << S->StartPla << endl;
     qDebug() << S->TicketsRest << endl;
 
+
 }
 
 FindFlight::~FindFlight()
 {
     delete ui;
-}
-
-void FindFlight::on_pushButton_clicked()
-{
-
 }

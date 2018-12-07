@@ -6,14 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>613</width>
-    <height>429</height>
+    <width>1360</width>
+    <height>691</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
+  <property name="styleSheet">
+   <string notr="true">#TableView{
+	color:white;
+    background-color: rgb(108, 108, 108);
+}</string>
+  </property>
+  <widget class="QLabel" name="CityStart_Label">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -26,7 +32,7 @@
     <string>出发城市</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="Find_Button">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -39,7 +45,7 @@
     <string>查询</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="CityStart_comboBox">
+  <widget class="QComboBox" name="CityStart_ComboBox">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -52,7 +58,7 @@
     <string notr="true">border-color: rgb(191, 166, 255);</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="CityEnd_Label">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -65,7 +71,7 @@
     <string>到达城市</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="CityEnd_comboBox">
+  <widget class="QComboBox" name="CityEnd_ComboBox">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -85,7 +91,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="Time_Label">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -96,6 +102,19 @@
    </property>
    <property name="text">
     <string>出发日期</string>
+   </property>
+  </widget>
+  <widget class="QTableView" name="TableView">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>30</y>
+     <width>891</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
   </widget>
  </widget>
