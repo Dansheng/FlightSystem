@@ -15,8 +15,11 @@ class FindFlight : public QDialog
 public:
     explicit FindFlight(QWidget *parent = 0);
     ~FindFlight();
-
 private slots:
+
+    void on_Book_Button_clicked();
+
+    void on_Find_Button_clicked();
 
 private:
     Ui::FindFlight *ui;

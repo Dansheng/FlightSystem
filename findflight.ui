@@ -128,6 +128,19 @@ QHeaderView {
     <string notr="true"/>
    </property>
   </widget>
+  <widget class="QPushButton" name="Book_Button">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>320</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>预定</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
