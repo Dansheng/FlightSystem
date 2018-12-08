@@ -26,7 +26,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
+   <string notr="true">/*用户名登录框样式*/
 #UserName_Edit{
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -34,6 +34,7 @@
 	border-bottom-left-radius:10px;	
 	border:1px solid rgb(209,209,209);
 }
+/*密码登录框样式*/
 #PassWord_Edit{
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -41,17 +42,14 @@
 	border-bottom-left-radius:10px;	
 	border:1px solid rgb(209,209,209);
 }
+/*用户名登录框鼠标悬停样式*/
 #UserName_Edit:hover{
-	
 	border:1px solid rgb(21,131,221)
-	
 }
+/*密码登录框鼠标悬停样式*/
 #PassWord_Edit:hover{
-	
 	border:1px solid rgb(21,131,221)
-	
 }
-
 /*登录按钮样式*/
 #Login_Button{
 	border-radius:10px;
@@ -59,7 +57,6 @@
 	background-color: rgb(37,88,184);
 	color:#fff;
 }
-
 /*登录按钮鼠标悬停样式*/
 #Login_Button:hover{
 	background-color:rgb(57,159,227);
@@ -71,7 +68,6 @@
 	background-color: none;
 	color:rgb(51,151,224);
 }
-
 /*游客进入按钮鼠标悬停样式*/
 #Visitor_Button:hover{
 	background-color:none;
@@ -84,32 +80,13 @@
 	background-color: none;
 	color:rgb(51,151,224);
 }
-
 /*注册按钮鼠标悬停样式*/
 #Register_Button:hover{
 	background-color:none;
 	color:rgb(43,58,141);
 }
-
-
-
-/*关闭按钮样式*/
-#Close_btn{
-	/*border-radius:9px;*/
-	border:none;
-	background-color: none;
-	color:rgb(155,155,155);
-}
-
-/*关闭按钮鼠标悬停样式*/
-#Close_btn:hover{
-	background-color:none;
-	color:rgb(0,0,0);
-}
-
-
-/*底部*/
-#Bottom{
+/*底色*/
+#Background{
 	background-color:rgb(246,246,246)
 }</string>
   </property>
@@ -214,7 +191,7 @@ font: 12pt &quot;Arial&quot;;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="Background_Label">
+  <widget class="QLabel" name="Logo">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -230,7 +207,7 @@ font: 12pt &quot;Arial&quot;;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="Bottom">
+  <widget class="QLabel" name="Background">
    <property name="geometry">
     <rect>
      <x>-20</x>
@@ -243,8 +220,8 @@ font: 12pt &quot;Arial&quot;;</string>
     <string/>
    </property>
   </widget>
-  <zorder>Bottom</zorder>
-  <zorder>Background_Label</zorder>
+  <zorder>Background</zorder>
+  <zorder>Logo</zorder>
   <zorder>UserName_Edit</zorder>
   <zorder>PassWord_Edit</zorder>
   <zorder>Register_Button</zorder>

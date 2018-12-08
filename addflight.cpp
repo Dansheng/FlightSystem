@@ -42,13 +42,13 @@ void AddFlight::on_pushButton_clicked()
     QString PeopleNumber=ui->PeopleNumber_Line->text();
     QString TicketLeft=ui->TicketLeft_Line->text();
     QString Times;
-    if(ui->Monday->isChecked()) Times.append('1'); else Times.append('0');
-    if(ui->Tuesday->isChecked()) Times.append('1'); else Times.append('0');
-    if(ui->Wednesday->isChecked()) Times.append('1'); else Times.append('0');
-    if(ui->Thursday->isChecked()) Times.append('1'); else Times.append('0');
-    if(ui->Friday->isChecked()) Times.append('1'); else Times.append('0');
-    if(ui->Saturday->isChecked()) Times.append('1'); else Times.append('0');
-    if(ui->Sunday->isChecked()) Times.append('1'); else Times.append('0');
+//    if(ui->Monday->isChecked()) Times.append('1'); else Times.append('0');
+//    if(ui->Tuesday->isChecked()) Times.append('1'); else Times.append('0');
+//    if(ui->Wednesday->isChecked()) Times.append('1'); else Times.append('0');
+//    if(ui->Thursday->isChecked()) Times.append('1'); else Times.append('0');
+//    if(ui->Friday->isChecked()) Times.append('1'); else Times.append('0');
+//    if(ui->Saturday->isChecked()) Times.append('1'); else Times.append('0');
+//    if(ui->Sunday->isChecked()) Times.append('1'); else Times.append('0');
 
     qDebug()<< Times << endl;
     QString info;

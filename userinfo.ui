@@ -35,7 +35,7 @@
 	color:rgb(0,0,0);
 }
 /*背景色*/
-#label{
+#Background{
 	background:rgb(247,247,247);
 }</string>
   </property>
@@ -58,7 +58,7 @@
     <string> UserName</string>
    </property>
   </widget>
-  <widget class="QLabel" name="Top">
+  <widget class="QLabel" name="Logo">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -90,7 +90,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="RealName_label">
+  <widget class="QLabel" name="RealName_Label">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -109,7 +109,7 @@
     <string>真实姓名</string>
    </property>
   </widget>
-  <widget class="QLabel" name="PhoneNumber_label">
+  <widget class="QLabel" name="PhoneNumber_Label">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -128,7 +128,7 @@
     <string>手机号码</string>
    </property>
   </widget>
-  <widget class="QLabel" name="IdCard_label">
+  <widget class="QLabel" name="IdCard_Label">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -147,7 +147,7 @@
     <string>身份证号码</string>
    </property>
   </widget>
-  <widget class="QLabel" name="Place_label">
+  <widget class="QLabel" name="Place_Label">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -242,7 +242,7 @@
     <string>622222199907289999</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="Background">
    <property name="geometry">
     <rect>
      <x>-50</x>
@@ -280,14 +280,14 @@
     <string>用户名</string>
    </property>
   </widget>
-  <zorder>label</zorder>
-  <zorder>Top</zorder>
+  <zorder>Background</zorder>
+  <zorder>Logo</zorder>
   <zorder>UserName</zorder>
   <zorder>Photo</zorder>
-  <zorder>RealName_label</zorder>
-  <zorder>PhoneNumber_label</zorder>
-  <zorder>IdCard_label</zorder>
-  <zorder>Place_label</zorder>
+  <zorder>RealName_Label</zorder>
+  <zorder>PhoneNumber_Label</zorder>
+  <zorder>IdCard_Label</zorder>
+  <zorder>Place_Label</zorder>
   <zorder>RealName</zorder>
   <zorder>PhoneNumber</zorder>
   <zorder>Place</zorder>

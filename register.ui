@@ -26,8 +26,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-/*登录按钮样式*/
+   <string notr="true">/*登录按钮样式*/
 #Sure_Button{
 	border-radius:4px;
 	border:none;
@@ -36,7 +35,6 @@
 	padding-top:6px;
 	padding-bottom:7px;
 }
-
 /*登录按钮鼠标悬停样式*/
 #Sure_Button:hover{
 	background-color:rgb(9,163,220);
@@ -77,7 +75,7 @@
 	border:1px solid rgb(21,131,221)
 	
 }
-/*用户名输入框样式*/
+/*输入框样式*/
 #RealName_Edit{
 	border-top-left-radius:4px;
 	border-top-right-radius:4px;
@@ -127,9 +125,8 @@
 	border-bottom-left-radius:4px;	
 	border:1px solid rgb(209,209,209);
 }
-
-/*底部*/
-#Bottom{
+/*底色*/
+#Background{
 	background-color:rgb(246,246,246);
 }
 /*标签颜色*/
@@ -413,7 +410,7 @@
     <string>注册</string>
    </property>
   </widget>
-  <widget class="QLabel" name="Backgroud_Label">
+  <widget class="QLabel" name="Logo">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -429,7 +426,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="Bottom">
+  <widget class="QLabel" name="Background">
    <property name="geometry">
     <rect>
      <x>-10</x>
@@ -454,8 +451,8 @@
     <string/>
    </property>
   </widget>
-  <zorder>Bottom</zorder>
-  <zorder>Backgroud_Label</zorder>
+  <zorder>Background</zorder>
+  <zorder>Logo</zorder>
   <zorder>UserName_Label</zorder>
   <zorder>PassWord_Label</zorder>
   <zorder>PassWordTwo_Label</zorder>
