@@ -115,8 +115,7 @@ FindFlight::FindFlight(QWidget *parent) :
 
 
 }
-//读取csv文件中的信息，将其串成一个单链表
-
+/* 读取数据 */
 void ReadData(Flight &L,int length)
 {
     QFile csvFile(FILE_PATH);//创建QFile对象 csvFile，File_PATH为csvFile文件保存的路径及类型
@@ -178,6 +177,7 @@ void MoveNode(Flight &P,Flight &L)
     Q->next=R;
     R->next=NULL;
 }
+/* 基排序三字码 */
 void RaidSort(Flight &L)
 {
        AirInfoNode*Bucket[26];
@@ -316,6 +316,9 @@ void FindFlight::on_Find_Button_clicked()
     {
         if(P->StartPla==BookCityStart && P->EndPla==BookCityEnd)
         {
+            qDebug() << ToWeek(BookTimeStart) << endl;
+            qDebug() << P->date.length() << endl;
+
             model->setItem(k,0,new QStandardItem(P->FlightNum));
             model->setItem(k,1,new QStandardItem(P->StartPla));
             model->setItem(k,2,new QStandardItem(P->EndPla));
