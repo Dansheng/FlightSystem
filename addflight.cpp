@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QLine.h>
+#include <const.h>
 AddFlight::AddFlight(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddFlight)
@@ -50,9 +51,8 @@ void AddFlight::on_pushButton_clicked()
     qDebug()<< Times << endl;
     QString info;
     //write the data
-    QFile data("..\\assets\\flight\\flight.csv");
-    QFile count("..\\assets\\flight\\count.txt");
-    // 如果是mac,此处的文件地址需要修改
+    QFile data(FILE_PATH);
+    QFile count(FILE_FLIGHTCOUNTS);
     if (data.open(QFile::WriteOnly | QFile::Append)) {
         QTextStream out(&data);
         out << CityStart << "," << CityEnd << "," << FightNumber << "," << PlaneNumber << "," << TimeStart << "," << TimeEnd << "," << Times << ","<< Price <<"," << Discout << ","<<
