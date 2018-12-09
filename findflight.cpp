@@ -9,7 +9,31 @@
 #include <QDateTime>
 #include <const.h>
 // 整个文件还比较冗长，后期再进行降维优化。
+#define Inf 65535
+#define OVERFLOW -1
 
+typedef struct {
+    int arcs[26][26];//邻接矩阵
+    int vexnum,arcnum;//图的当前顶点数和弧数
+}MGraph;
+
+typedef int PathMaxtrix;//存储最短路径的下标
+typedef int ShortPathTable;//存储到各点最短路径的权值
+typedef int Transform;
+typedef struct{
+    int *base;
+    int *top;
+    int stacksize;
+}SqStack;
+//求最短路径
+void ShorttestPath_Dijkstra(MGraph G,int v0,PathMaxtrix *P,ShortPathTable *D);
+void ShortPath(int i,int j,PathMaxtrix *P,Transform *T);
+void Improve(PathMaxtrix *P,ShortPathTable *D,int k);
+void PrintFlight(QStringList Result);
+void InitStack(SqStack &S);//栈的初始化
+void Push(SqStack &S,int e);//入栈
+void Pop(SqStack &S,int &e);//出栈
+int StackEmpty(SqStack S);//判空
 typedef struct AirInfoNode{
     QString StartPla;//始发站
     QString EndPla;//终点站
@@ -29,17 +53,12 @@ typedef struct FlightList{
     Flight Rear;//指向航线尾指针
     int length;
 }FlightList;
-// 文件地址
+
 /* 全局变量设定 */
-FlightList L;
-
-//const QString FILE_PATH("..\\assets\\flight\\flight.csv");//File_PATH为文件保存的路径及类型（航线数据）
-//const QString FILE_BOOK("..\\assets\\user\\book.txt");
-//const QString FILE_LOGIN("..\\assets\\user\\login.txt");
-//const QString FILE_FLIGHTCOUNTS("..\\assets\\flight\\count.txt");
-
-//const QString FILE_PATH("/Users/wanghanyi/Desktop/FlightSystem/assets/flight/flight.csv");//File_PATH为文件保存的路径及类型
-
+static FlightList L;
+static QStringList CityTable,HeaderTable;
+MGraph G;
+static int numbers=0;
 
 
 /* 函数声明 */
@@ -58,17 +77,16 @@ FindFlight::FindFlight(QWidget *parent) :
     ui(new Ui::FindFlight)
 {
     ui->setupUi(this);
-    QStringList CityTable,HeaderTable;
     CityTable << "北京" << "西安" << "厦门" << "上海浦东" << "上海虹桥" << "深圳" << "广州" << "重庆"
               << "长沙" << "张家界" << "海口" << "昆明" << "南京" << "成都" << "武汉" << "杭州" << "秦皇岛"
               << "三亚" <<"青岛" << "温州" << "沈阳" << "桂林" << "呼和浩特" << "哈尔滨" << "大连" << "天津";
     HeaderTable << "航班号" << "出发城市" << "到达城市" << "出发时间" << "到达时间" << "折后票价" << "折扣" << "余票" ;
+    qDebug() << CityTable.indexOf("桂林") << endl;
     for(int i=0;i<CityTable.length();i++)
     {
         ui->CityStart_ComboBox->addItem(CityTable.at(i));
         ui->CityEnd_ComboBox->addItem(CityTable.at(i));
     }
-
     //TableView
     QStandardItemModel *model = new QStandardItemModel();
     model->setColumnCount(8);
@@ -123,12 +141,17 @@ void ReadData(Flight &L,int length)
     QString Str;
     CSVList.clear();//清空
     Flight S;
+    int i,j,k;
     // 初始化L,并以L的Front为头结点
     if(csvFile.open(QIODevice::ReadWrite))
     {
         QTextCodec *codec = QTextCodec::codecForName("UTF-8");
         // 单链表
-        for(int i=0;i<length;i++)
+        for(int m=0;m<26;m++){
+            for(int n=0;n<26;n++)
+                G.arcs[m][n]=Inf;
+        }
+        for(k=0;k<length;k++)
         {
             Str = codec->toUnicode(csvFile.readLine());
             list = Str.split(",");
@@ -149,6 +172,11 @@ void ReadData(Flight &L,int length)
             // 头插法
             S->next=L->next;
             L->next=S;
+            i=CityTable.indexOf(S->StartPla);
+            j=CityTable.indexOf(S->EndPla);
+            G.vexnum=26;
+            if(S->Price<G.arcs[i][j])
+                G.arcs[i][j]=S->Price.toInt();
         }
     }
     csvFile.close();
@@ -320,7 +348,6 @@ void FindFlight::on_Find_Button_clicked()
         {
             qDebug() << ToWeek(BookTimeStart) << endl;
             qDebug() << P->date.length() << endl;
-
             model->setItem(k,0,new QStandardItem(P->FlightNum));
             model->setItem(k,1,new QStandardItem(P->StartPla));
             model->setItem(k,2,new QStandardItem(P->EndPla));
@@ -333,6 +360,50 @@ void FindFlight::on_Find_Button_clicked()
         }
         P=P->next;
     }
+    //没有找到的情况
+    if(!k)
+    {
+        k=0;
+        Transform T[3];
+        PathMaxtrix K[26];
+        ShortPathTable D[26];
+        int start=CityTable.indexOf(BookCityStart);
+        int end=CityTable.indexOf(BookCityEnd);
+       ShorttestPath_Dijkstra(G,start,K,D);
+       Improve(K,D,start);
+       ShortPath(start,end,K,T);
+       QStringList Citys;
+       for(int g=0;g<numbers;g++)
+           Citys<<CityTable.at(T[g]);
+       for(int g=0;g<Citys.length();g++)
+           qDebug()<<Citys.at(g);
+       {
+           Flight Q;
+           Q=L.Front->next;
+           QString strcity,endcity;
+           for(int i=0;i<Citys.length();i++)
+           {
+               strcity=Citys[0];
+               endcity=Citys[1];
+               if(Q->StartPla==strcity && Q->EndPla==endcity)
+               {
+                   qDebug() <<"qqqqq" ;
+                   model->setItem(k,0,new QStandardItem(Q->FlightNum));
+                   model->setItem(k,1,new QStandardItem(Q->StartPla));
+                   model->setItem(k,2,new QStandardItem(Q->EndPla));
+                   model->setItem(k,3,new QStandardItem(Q->TimeFly));
+                   model->setItem(k,4,new QStandardItem(Q->TimeArr));
+                   model->setItem(k,5,new QStandardItem(Q->Price));
+                   model->setItem(k,6,new QStandardItem(Q->Discount));
+                   model->setItem(k,7,new QStandardItem(Q->TicketsRest));
+                   k++;
+               }
+               Q=Q->next;
+           }
+
+       }
+    }
+
 }
 /* 判断星期几 */
 int ToWeek(QString data)
@@ -361,4 +432,104 @@ void SentMessage__(QString info)
 FindFlight::~FindFlight()
 {
     delete ui;
+}
+void ShorttestPath_Dijkstra(MGraph G,int v0,PathMaxtrix *P,ShortPathTable *D)
+{
+    int v,w,k,min;
+    int final[G.vexnum];//final[w]=1表示已经求得顶点v0至v的最短路径
+    for (v=0; v<G.vexnum; v++) {//初始化数据
+        final[v]=0;//全部顶点初始化为未知最短路径状态
+        D[v]=G.arcs[v0][v];//将与v0有连线的顶点加上权值
+        P[v]=0;//初始化路径数组P为0
+    }
+    D[v0]=0;//自己到自己的路径为0
+    final[v0]=1;//自回路无需求路径
+    for (v=1; v<G.vexnum; v++) {//开始主循环，每次求得v0到某个v顶点的最短路径
+        min=Inf;//当前已知离v0顶点的最近距离
+        for (w=0; w<G.vexnum; w++) {//寻找离v0最近的点
+            if (!final[w]&&D[w]<min) {
+                k=w;
+                min=D[w];//w顶点离v0更近
+            }
+        }
+        final[k]=1;//将目前找到的最近的顶点置为1
+        for (w=0; w<G.vexnum; w++) {//修正当前最短路径及距离
+            if (!final[w]&&(min+G.arcs[k][w])<D[w]) {//如果经过v顶点的路径比现在这条路径的长度短的话
+                D[w]=min+G.arcs[k][w];//说明找到的更短的路径，修改D[w]和P[w]
+                P[w]=k;
+            }
+        }
+    }
+}
+void ShortPath(int i,int j,PathMaxtrix *P,Transform *T)
+{
+    int x,e,k=0;
+    numbers=0;
+    x=j;
+    SqStack S;
+    InitStack(S);
+    Push(S, x);
+    while (x!=i) {
+        if (P[x]==65535) {
+            printf("不可达!\n");
+            return;
+        }
+        x=P[x];
+        Push(S, x);
+    }
+    while (!StackEmpty(S)) {
+        Pop(S, e);
+        T[k]=e;
+        numbers++;
+        k++;
+    }
+
+}
+void InitStack(SqStack &S)
+{
+    S.base=(int *)malloc(sizeof(int)*100);
+    if (!S.base) {
+        exit(OVERFLOW);
+    }
+    S.top=S.base;
+    S.stacksize=100;
+}
+void Push(SqStack &S,int e)
+{//    if (S.top-S.base>=S.stacksize) {
+    //        S.base=(SElemType *)realloc(S.base, sizeof(SElemType)*(INT_STACK_SIZE+STACKINCREMENT));
+    //        if (!S.base) {
+    //            exit(OVERFLOW);
+    //        }
+    //        S.top=S.base+S.stacksize;
+    //        S.stacksize+=STACKINCREMENT;
+    //    }
+    *S.top++=e;
+}
+void Pop(SqStack &S,int &e)
+{
+    if (S.base==S.top) {
+        return;
+    }
+    e=*--S.top;
+}
+int StackEmpty(SqStack S)
+{
+    if (S.top==S.base) {
+        return 1;
+    }
+    else return 0;
+}
+void Improve(PathMaxtrix *P,ShortPathTable *D,int k)
+{
+    int i;
+    for (i=0; i<26; i++) {
+        if (D[i]==65535) {
+            P[i]=65535;
+        }
+    }
+    for (i=0; i<26; i++) {
+        if (i!=k&&P[i]==0) {
+            P[i]=k;
+        }
+    }
 }
