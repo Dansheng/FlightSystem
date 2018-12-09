@@ -32,7 +32,8 @@ SOURCES += \
     userinfo.cpp \
     addflight.cpp \
     findflight.cpp \
-    const.cpp
+    const.cpp \
+    cityraider.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,7 +43,8 @@ HEADERS += \
     userinfo.h \
     addflight.h \
     findflight.h \
-    const.h
+    const.h \
+    cityraider.h
 
 FORMS += \
         mainwindow.ui \
@@ -51,7 +53,8 @@ FORMS += \
     orderquery.ui \
     userinfo.ui \
     addflight.ui \
-    findflight.ui
+    findflight.ui \
+    cityraider.ui
 
 RESOURCES += \
     assets/images/images.qrc
