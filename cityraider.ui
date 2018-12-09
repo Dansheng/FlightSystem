@@ -423,12 +423,12 @@
     <string>城市景点路线攻略</string>
    </property>
   </widget>
-  <widget class="QLabel" name="RecommendedRoute">
+  <widget class="QLabel" name="RecommendedRoute_Label">
    <property name="geometry">
     <rect>
      <x>40</x>
      <y>460</y>
-     <width>661</width>
+     <width>281</width>
      <height>41</height>
     </rect>
    </property>
@@ -455,6 +455,25 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="RecommendedRoute">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>460</y>
+     <width>561</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>STKaiti</family>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>!@#%$#@#$%^&amp;*</string>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>MapBackground</zorder>
   <zorder>XianRailwayStation_QRB</zorder>
@@ -473,11 +492,12 @@
   <zorder>SLB_XAZ_Route</zorder>
   <zorder>SLB_ZL_Route</zorder>
   <zorder>ZL_XAZ_Route</zorder>
-  <zorder>RecommendedRoute</zorder>
+  <zorder>RecommendedRoute_Label</zorder>
   <zorder>SLB_BMY_Route</zorder>
   <zorder>ZL_BMY_Route</zorder>
   <zorder>XAZ_BMY_Route</zorder>
   <zorder>XianRailwayStation_Btn</zorder>
+  <zorder>RecommendedRoute</zorder>
  </widget>
  <resources/>
  <connections/>

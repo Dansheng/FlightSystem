@@ -8,22 +8,23 @@ using namespace std;
 #define MAX 100
 #define N 520
 #define E 7
+#define inf 999999
 float edge[N][N],disp[N];
 float weight=0.00;
 int w[N],num;
 bool visited[N] = {false};
-const int inf = 999999;
-
 int *findpath(int start_point1, int end_point1 );
 float CalWeight(int *s);
 int comp(int a[],int b[],int n);
-
+QStringList spot;
+QStringList spot2;
+QString rec;
 CityRaider::CityRaider(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CityRaider)
 {
     ui->setupUi(this);
-
+    spot<<"陕西历史博物馆"<<"钟楼"<<"鼓楼"<<"西安火车站"<<"兵马俑";
 }
 
 CityRaider::~CityRaider()
@@ -42,13 +43,14 @@ void CityRaider::on_XianRailwayStation_QRB_clicked()
         ui->XianRailwayStation_Btn->setStyleSheet("image:url(:/images/XianRailwayStation2.png);");
         in[3]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
     }
     else
     {
         ui->XianRailwayStation_Btn->setStyleSheet("image:url(:/images/XianRailwayStation.png);");
         in[3]=0;
         CityRaiderMain();
-
+        ui->RecommendedRoute->setText(rec);
     }
 }
 
@@ -60,7 +62,7 @@ void CityRaider::on_XianRailwayStation_Btn_clicked()
         ui->XianRailwayStation_QRB->setChecked(false);
         in[3]=0;
         CityRaiderMain();
-
+        ui->RecommendedRoute->setText(rec);
 
     }
     else
@@ -69,6 +71,7 @@ void CityRaider::on_XianRailwayStation_Btn_clicked()
         ui->XianRailwayStation_QRB->setChecked(true);
         in[3]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
 }
@@ -82,6 +85,7 @@ void CityRaider::on_TerraCottaWarriors_QRB_clicked()
         ui->TerraCottaWarriors_Btn->setStyleSheet("image:url(:/images/TerraCottaWarriors2.png);");
         in[4]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
     else
@@ -89,6 +93,7 @@ void CityRaider::on_TerraCottaWarriors_QRB_clicked()
         ui->TerraCottaWarriors_Btn->setStyleSheet("image:url(:/images/TerraCottaWarriors.png);");
         in[4]=0;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
 }
@@ -101,6 +106,7 @@ void CityRaider::on_TerraCottaWarriors_Btn_clicked()
         ui->TerraCottaWarriors_QRB->setChecked(false);
         in[4]=0;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
     else
@@ -109,6 +115,7 @@ void CityRaider::on_TerraCottaWarriors_Btn_clicked()
         ui->TerraCottaWarriors_QRB->setChecked(true);
         in[4]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
 }
@@ -122,6 +129,7 @@ void CityRaider::on_ShaanxiHistoryMuseum_QRB_clicked()
         ui->ShaanxiHistoryMuseum_Btn->setStyleSheet("image:url(:/images/ShaanxiHistoryMuseum2.png);");
         in[0]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
     else
@@ -129,6 +137,7 @@ void CityRaider::on_ShaanxiHistoryMuseum_QRB_clicked()
         ui->ShaanxiHistoryMuseum_Btn->setStyleSheet("image:url(:/images/ShaanxiHistoryMuseum.png);");
         in[0]=0;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
 }
@@ -141,6 +150,7 @@ void CityRaider::on_ShaanxiHistoryMuseum_Btn_clicked()
         ui->ShaanxiHistoryMuseum_QRB->setChecked(false);
         in[0]=0;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
     else
@@ -149,6 +159,7 @@ void CityRaider::on_ShaanxiHistoryMuseum_Btn_clicked()
         ui->ShaanxiHistoryMuseum_QRB->setChecked(true);
         in[0]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
 }
@@ -162,6 +173,7 @@ void CityRaider::on_DrumTower_QRB_clicked()
         ui->DrumTower_Btn->setStyleSheet("image:url(:/images/DrumTower2.png);");
         in[2]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
     else
@@ -169,6 +181,7 @@ void CityRaider::on_DrumTower_QRB_clicked()
         ui->DrumTower_Btn->setStyleSheet("image:url(:/images/DrumTower.png);");
         in[2]=0;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
 }
@@ -181,6 +194,7 @@ void CityRaider::on_DrumTower_Btn_clicked()
         ui->DrumTower_QRB->setChecked(false);
         in[2]=0;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
     else
@@ -189,6 +203,7 @@ void CityRaider::on_DrumTower_Btn_clicked()
         ui->DrumTower_QRB->setChecked(true);
         in[2]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
 }
@@ -202,6 +217,7 @@ void CityRaider::on_BellTower_QRB_clicked()
         ui->BellTower_Btn->setStyleSheet("image:url(:/images/BellTower2.png);");
         in[1]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
 
     }
@@ -210,6 +226,7 @@ void CityRaider::on_BellTower_QRB_clicked()
         ui->BellTower_Btn->setStyleSheet("image:url(:/images/BellTower.png);");
         in[1]=0;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
 }
@@ -222,14 +239,16 @@ void CityRaider::on_BellTower_Btn_clicked()
         ui->BellTower_QRB->setChecked(false);
         in[1]=0;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
     else
     {
         ui->BellTower_Btn->setStyleSheet("image:url(:/images/BellTower2.png);");
         ui->BellTower_QRB->setChecked(true);
-        in[0]=1;
+        in[1]=1;
         CityRaiderMain();
+        ui->RecommendedRoute->setText(rec);
 
     }
 }
@@ -246,7 +265,7 @@ int *findpath(int start_point1, int end_point1 )
     {
         visited[i]=false;
     }
-    int n=5,m=6;//对应城市数，城市之间连线数
+    int n=5;//对应城市数，城市之间连线数
     for(int i=0;i<N;i++)
     {
         for(int j=0;j<N;j++)
@@ -362,9 +381,11 @@ void CityRaiderMain()
 {
     int i,l=0,city=0;
     int arr_city[5];
+    spot2.clear();
+    rec.clear();
     for(i=0;i<5;i++)
     {
-        qDebug() << in[i] << endl ;
+        qDebug() << in[i]  ;
     }
     for(i=0;i<5;i++)
     {
@@ -376,71 +397,73 @@ void CityRaiderMain()
     }
     for(i=0;i<city;i++)
     {
+        qDebug()<< "arr_city[i]:";
         qDebug()<<arr_city[i]<<" ";
     }
-    if(city<=1) return;
     qDebug()<<"city:" << city <<endl;
 
-        int q,j=0,num=1,count;
-        int tem;
-        float w,temp=999999.9;
-        int *path;
-        int copy[MAX];
-
-        int per[MAX][city];
-        int result[city-1][MAX];
-        for(i=1;i<city+1;i++)
+    if(city<=1) return;
+    int q,j=0,num=1,count;
+    int tem;
+    float w,temp=999999.9;
+    int *path;
+    int per[MAX][city];
+    for(i=1;i<city+1;i++)
+    {
+        num=num*i;
+    }
+    num=num/2;
+    float store[num];
+    do
+    {
+        for(i=0,count=0;i<j;i++)
         {
-            num=num*i;
+            if(!comp(arr_city, per[i], city)) count++;
         }
-        num=num/2;
-        float store[num];
-        do
+        if(count==j)
         {
-            for(i=0,count=0;i<j;i++)
-            {
-                if(!comp(arr_city, per[i], city)) count++;
-            }
-            if(count==j)
-            {
-                memcpy(per[j],arr_city,sizeof(arr_city));j++;
-            }
+            memcpy(per[j],arr_city,sizeof(arr_city));j++;
         }
-        while(next_permutation(arr_city, arr_city+city));
-
-        for(i=0;i<num;i++)
+    }
+    while(next_permutation(arr_city, arr_city+city));
+    for(i=0;i<num;i++)
+    {
+        for(q=0,w=0;q<city-1;q++)
         {
-            for(q=0,w=0;q<city-1;q++)
-            {
-                path=findpath(per[i][q], per[i][q+1]);
-                w+=CalWeight(path);
-            }
-            store[i]=w;
-
+            path=findpath(per[i][q], per[i][q+1]);
+            w+=CalWeight(path);
         }
-
-        for(i=0;i<num;i++)
+        store[i]=w;
+    }
+    for(i=0;i<num;i++)
+    {
+        if(store[i]<temp)
         {
-            if(store[i]<temp)
-            {
-                temp=store[i];tem=i;
-            }
+           temp=store[i];tem=i;
         }
-        for(i=0;i<city-1;i++)
+    }
+    for(i=0;i<city-1;i++)
+    {
+        path=findpath(per[tem][i],per[tem][i+1]);
+        for(q=1;q<path[0];q++)
         {
-            path=findpath(per[tem][i],per[tem][i+1]);
-            for(q=1;q<path[0];q++)
-            {
-                qDebug()<<path[q]<<" ";
-            }
-            if(i==city-2)
-            {
-                qDebug()<<path[path[0]]<<" ";
-            }
+            qDebug()<<path[q]<<" ";
+            spot2<<spot.at(path[q]-1);
         }
+        if(i==city-2)
+        {
+           qDebug()<<path[path[0]]<<" ";
+           spot2<<spot.at(path[q]-1);
+        }
+    }
+    for(i=0;i<spot2.length();i++)
+    {
+        rec.append(spot2[i]);
+        if(i!=( spot2.length()-1 )) rec.append("->");
+    }
 
-
-        qDebug()<<"最短距离为"<<temp;
+    qDebug() << rec ;
+    qDebug() <<"最短距离为"<<temp;
 
 }
 
