@@ -17,7 +17,6 @@ public:
 
 private slots:
 
-
     void on_XianRailwayStation_QRB_clicked();
 
     void on_XianRailwayStation_Btn_clicked();
