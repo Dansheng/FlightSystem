@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QFontDatabase> // 为了使用fontawesome
 #include <QPalette>
+#include <cityraider.h>
 Login::Login(QWidget *parent) :
     QDialog(parent),
 //     QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
@@ -82,4 +83,13 @@ void Login::on_Visitor_Button_clicked()
         data.close();
     }
     accept();
+}
+
+void Login::on_dev_clicked()
+{
+    CityRaider cityraiders;
+    if(cityraiders.exec() == QDialog::Accepted)
+    {
+        //to do: 返回登陆界面或者直接进入主窗口并显示用户信息
+    }
 }
