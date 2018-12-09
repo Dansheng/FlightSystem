@@ -24,6 +24,7 @@ CityRaider::CityRaider(QWidget *parent) :
     ui(new Ui::CityRaider)
 {
     ui->setupUi(this);
+    //spot 顶点表
     spot<<"陕西历史博物馆"<<"钟楼"<<"鼓楼"<<"西安火车站"<<"兵马俑";
 }
 
