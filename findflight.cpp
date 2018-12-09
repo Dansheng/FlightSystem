@@ -366,6 +366,7 @@ void FindFlight::on_Find_Button_clicked()
     if(!k)
     {
         k=0;
+        Transform T[L.length];
         PathMaxtrix K[26];
         ShortPathTable D[26];
         int start=CityTable.indexOf(BookCityStart);
@@ -398,6 +399,7 @@ void FindFlight::on_Find_Button_clicked()
             }
         }
     }
+//    qDebug() << "查找结束噢" ;
 }
 /* 判断星期几 */
 int ToWeek(QString data)
