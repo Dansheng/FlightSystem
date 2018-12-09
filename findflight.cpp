@@ -234,6 +234,8 @@ QString Trans(QString str)
     if(str=="重庆") ThreeCode="CKG";
     if(str=="三亚") ThreeCode="SYX";
     if(str=="青岛") ThreeCode="TAO";
+    if(str=="哈尔滨") ThreeCode="HRB";
+
     return ThreeCode;
 }
 
