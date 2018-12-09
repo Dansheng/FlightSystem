@@ -59,6 +59,8 @@ static FlightList L;
 static QStringList CityTable,HeaderTable;
 MGraph G;
 static int numbers=0;
+static QStringList Citys;
+
 
 
 /* 函数声明 */
@@ -364,46 +366,38 @@ void FindFlight::on_Find_Button_clicked()
     if(!k)
     {
         k=0;
-        Transform T[3];
         PathMaxtrix K[26];
         ShortPathTable D[26];
         int start=CityTable.indexOf(BookCityStart);
         int end=CityTable.indexOf(BookCityEnd);
-       ShorttestPath_Dijkstra(G,start,K,D);
-       Improve(K,D,start);
-       ShortPath(start,end,K,T);
-       QStringList Citys;
-       for(int g=0;g<numbers;g++)
-           Citys<<CityTable.at(T[g]);
-       for(int g=0;g<Citys.length();g++)
-           qDebug()<<Citys.at(g);
-       {
-           Flight Q;
-           Q=L.Front->next;
-           QString strcity,endcity;
-           for(int i=0;i<Citys.length();i++)
-           {
-               strcity=Citys[0];
-               endcity=Citys[1];
-               if(Q->StartPla==strcity && Q->EndPla==endcity)
-               {
-                   qDebug() <<"qqqqq" ;
-                   model->setItem(k,0,new QStandardItem(Q->FlightNum));
-                   model->setItem(k,1,new QStandardItem(Q->StartPla));
-                   model->setItem(k,2,new QStandardItem(Q->EndPla));
-                   model->setItem(k,3,new QStandardItem(Q->TimeFly));
-                   model->setItem(k,4,new QStandardItem(Q->TimeArr));
-                   model->setItem(k,5,new QStandardItem(Q->Price));
-                   model->setItem(k,6,new QStandardItem(Q->Discount));
-                   model->setItem(k,7,new QStandardItem(Q->TicketsRest));
-                   k++;
-               }
-               Q=Q->next;
-           }
-
-       }
+        ShorttestPath_Dijkstra(G,start,K,D);
+        Improve(K,D,start);
+        ShortPath(start,end,K,T);
+        for(int g=0;g<numbers;g++)
+        {
+           qDebug()<<Citys[g];
+        }
+        for(int j=0;j<Citys.length()-1;j++)
+        {
+            P=L.Front->next;
+            for(int i=0;i<L.length;i++)
+            {
+                if(P->StartPla==Citys[j] && P->EndPla==Citys[j+1])
+                {
+                    model->setItem(k,0,new QStandardItem(P->FlightNum));
+                    model->setItem(k,1,new QStandardItem(P->StartPla));
+                    model->setItem(k,2,new QStandardItem(P->EndPla));
+                    model->setItem(k,3,new QStandardItem(P->TimeFly));
+                    model->setItem(k,4,new QStandardItem(P->TimeArr));
+                    model->setItem(k,5,new QStandardItem(P->Price));
+                    model->setItem(k,6,new QStandardItem(P->Discount));
+                    model->setItem(k,7,new QStandardItem(P->TicketsRest));
+                    k++;
+                }
+                P=P->next;
+            }
+        }
     }
-
 }
 /* 判断星期几 */
 int ToWeek(QString data)
@@ -463,8 +457,10 @@ void ShorttestPath_Dijkstra(MGraph G,int v0,PathMaxtrix *P,ShortPathTable *D)
 }
 void ShortPath(int i,int j,PathMaxtrix *P,Transform *T)
 {
-    int x,e,k=0;
+    int x,e;
+    Citys.clear();
     numbers=0;
+    qDebug()<< "numbers:" << numbers;
     x=j;
     SqStack S;
     InitStack(S);
@@ -479,9 +475,11 @@ void ShortPath(int i,int j,PathMaxtrix *P,Transform *T)
     }
     while (!StackEmpty(S)) {
         Pop(S, e);
-        T[k]=e;
+//        T[k]=e;
+        qDebug() << e;
+        Citys << CityTable.at(e);
         numbers++;
-        k++;
+//        k++;
     }
 
 }
