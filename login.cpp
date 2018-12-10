@@ -9,6 +9,8 @@
 #include <QDebug>
 #include <QFontDatabase> // 为了使用fontawesome
 #include <QPalette>
+#include "const.h"
+#include <QTextCodec>
 Login::Login(QWidget *parent) :
     QDialog(parent),
 //     QDialog(parent,Qt::Dialog|Qt::FramelessWindowHint),
@@ -32,35 +34,58 @@ void Login::on_Login_Button_clicked()
 {
     QString UserName=ui->UserName_Edit->text().trimmed(); // 去除用户名输入的空格
     QString PassWord=ui->PassWord_Edit->text();
+    QStringList Users;
+    QString list;
+    QString name;
+    QString pwd;
+    int flag=0;
+    int length;
     // to do： 读取文件 账号和密码
-    if( (UserName == "suliangcai" && PassWord == "123456789") ||(UserName == "liangcai" && PassWord == "123456789"))
+    QFile userdata(FILE_USERS);
+    QFile usercount(FILE_USERCOUNTS);
+    if(usercount.open(QFile::ReadOnly |QFile::Text))
     {
-        QFile data("..\\assets\\user\\login.txt");
-        if (data.open(QFile::WriteOnly)) {
-            QTextStream out(&data);
-            out << UserName <<endl;
-            data.flush();
-            data.close();
+        QTextStream counts(&usercount);
+        length= counts.readLine().toInt();
+        qDebug() << "length:" << length << endl;
+        usercount.close();
+    }
+    if(userdata.open(QIODevice::ReadOnly));
+    {
+        QTextCodec *codec = QTextCodec::codecForName("UTF-8");
+        for(int i=0;i<length;i++){
+            list = codec->toUnicode(userdata.readLine());
+            Users = list.split(",");
+            qDebug() << Users <<endl;
+            name=Users[0];
+            pwd=Users[1];
+            if(UserName == name && PassWord ==pwd)
+            {
+                QFile data(FILE_LOGIN);
+                if (data.open(QFile::WriteOnly)) {
+                    QTextStream out(&data);
+                    out << UserName <<endl;
+                    data.flush();
+                    data.close();
+                }
+                qDebug() << "success" << endl;
+                flag=1;
+                accept();
+            }
         }
-        qDebug() << "success" << endl;
-        accept();
-    }
-    else
-        // 错误提示
-    {
-        QMessageBox warning;
-        QString info;
-        warning.setWindowTitle("错误");
-        info="您输入的用户名或者密码有误";
-        warning.setText(info);
-        warning.addButton("确定",QMessageBox::ActionRole);
-        warning.exec();
+        if(!flag)
+        {
+                QMessageBox warning;
+                QString info;
+                warning.setWindowTitle("错误");
+                info="您输入的用户名或者密码有误";
+                warning.setText(info);
+                warning.addButton("确定",QMessageBox::ActionRole);
+                warning.exec();
+        }
 
     }
-
 }
-
-
 void Login::on_Register_Button_clicked()
 {
     Register reg;

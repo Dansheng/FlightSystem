@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QFile>
+#include <const.h>
 Register::Register(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Register)
@@ -95,19 +96,16 @@ void Register::on_Sure_Button_clicked()
     {
         info="手机号码不能为空";
         SentMessage(info);
-        qDebug() << "7" << endl;
     }
     else if(PhoneNumber.length()!=11)
     {
         info="您的手机号输入有误,请重新输入";
         SentMessage(info);
-        qDebug() << "8" << endl;
     }
     else if(PhoneNumber.mid(0,2)!="13"&&PhoneNumber.mid(0,2)!="18"&&(PhoneNumber.mid(0,2)!="15"||PhoneNumber.mid(0,3)=="154")&&PhoneNumber.mid(0,3)!="145"&&PhoneNumber.mid(0,3)!="147")
     {
         info="您的手机号不合法,请重新输入";
         SentMessage(info);
-        qDebug() << "9" << endl;
     }
     //身份证号码
     else if(IdCard.length()!=18)
@@ -117,12 +115,11 @@ void Register::on_Sure_Button_clicked()
     }
     else
     {
-        qDebug() << "10" << endl;
         // to do: write the data to csv
 
         // issue: 这里使用相对路径原因是工作路径和exe文件构建路径不在一个地方
         // win平台下使用管理员模式打开合适
-        QFile data("..\\assets\\user\\user.csv");
+        QFile data(FILE_USERS);
         if (data.open(QFile::WriteOnly | QFile::Append))
         {
             qDebug() << "successful!!" << endl;
@@ -132,12 +129,24 @@ void Register::on_Sure_Button_clicked()
             data.close();
             info="注册成功";
             SentMessage(info);
+            QFile count(FILE_USERCOUNTS);
+            if(count.open(QFile::ReadOnly |QFile::Text))
+            {
+                QTextStream counts(&count);
+                int length = counts.readLine().toInt();
+                qDebug() << "length:" << length << endl;
+                count.close();
+                if(count.open(QFile::WriteOnly | QFile::Text))
+                {
+                    QTextStream counts(&count);
+                    counts << (length+1) << endl;
+                    count.close();
+                }
+            }
         }
         accept();
     }
 }
-
-
 
 void Register::on_Sure_Button_pressed()
 {

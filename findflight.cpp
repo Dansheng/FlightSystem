@@ -28,7 +28,7 @@ typedef struct{
 }SqStack;
 //求最短路径
 void ShorttestPath_Dijkstra(MGraph G,int v0,PathMaxtrix *P,ShortPathTable *D);
-void ShortPath(int i,int j,PathMaxtrix *P,Transform *T);
+void ShortPath(int i,int j,PathMaxtrix *P);
 void Improve(PathMaxtrix *P,ShortPathTable *D,int k);
 void PrintFlight(QStringList Result);
 void InitStack(SqStack &S);//栈的初始化
@@ -74,7 +74,7 @@ void MoveNode(Flight &P,Flight &L);//移动结点
 int ToWeek(QString data);//日期转星期
 void SentMessage__(QString info);
 void Cleartable();
-
+void PrintL(Ui::FindFlight *ui);
 FindFlight::FindFlight(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::FindFlight)
@@ -126,18 +126,18 @@ FindFlight::FindFlight(QWidget *parent) :
         model->setItem(i,6,new QStandardItem(P->Discount));
         model->setItem(i,7,new QStandardItem(P->TicketsRest));
         //居中
-        for(int j=0;j<8;j++)
+        for(int j=0;j<7;j++)
             model->item(i,j)->setTextAlignment(Qt::AlignCenter);
         P=P->next;
     }
+    model->item(0,7)->setTextAlignment(Qt::AlignCenter);
     // 设置初始时间
     QDateTime Current_Date_Time =QDateTime::currentDateTime();
     ui->TimeStart->setDateTime(Current_Date_Time);
 
-
 }
 /* 读取数据 */
-void ReadData(Flight &L,int length)
+void ReadData(Flight &K,int length)
 {
     QFile csvFile(FILE_PATH);//创建QFile对象 csvFile，File_PATH为csvFile文件保存的路径及类型
     QStringList CSVList,list;  //字符串列表
@@ -173,8 +173,8 @@ void ReadData(Flight &L,int length)
             S->PassNum=list[9];
             S->TicketsRest=list[10];
             // 头插法
-            S->next=L->next;
-            L->next=S;
+            S->next=K->next;
+            K->next=S;
             i=CityTable.indexOf(S->StartPla);
             j=CityTable.indexOf(S->EndPla);
             G.vexnum=26;
@@ -182,6 +182,7 @@ void ReadData(Flight &L,int length)
                 G.arcs[i][j]=S->Price.toInt();
         }
     }
+
     csvFile.close();
 }
 void InitList(Flight &L)
@@ -308,17 +309,31 @@ void FindFlight::on_Book_Button_clicked()
                     {
                         index = model->index(row,i);
                         in_book << "," << model->data(index).toString() ;
-                        info="预定成功！";
-                        SentMessage__(info);
                     }
+                    info="预定成功！";
+                    SentMessage__(info);
                 }
                 book.close();
+                //根据航班号找航班
+                qDebug()<<"pppppppppppppppppppppppppppppppp";
+                Flight P=L.Front->next;
+                for(int g=0;g<L.length;g++)
+                {
+                    qDebug() << P->FlightNum;
+                    qDebug() << BookFlightNum;
+                    if(P->FlightNum==BookFlightNum)
+                    {
+                        P->TicketsRest=QString::number(P->TicketsRest.toInt()-1);
+                        qDebug() << P->TicketsRest;
+                        PrintL(ui);
+                    }
+                    P=P->next;
+                }
+
             }
             login.close();
         }
     }
-
-
 }
 
 /* 查询航班功能 */
@@ -374,7 +389,7 @@ void FindFlight::on_Find_Button_clicked()
         int end=CityTable.indexOf(BookCityEnd);
         ShorttestPath_Dijkstra(G,start,K,D);
         Improve(K,D,start);
-        ShortPath(start,end,K,T);
+        ShortPath(start,end,K);
         for(int g=0;g<numbers;g++)
         {
            qDebug()<<Citys[g];
@@ -400,7 +415,6 @@ void FindFlight::on_Find_Button_clicked()
             }
         }
     }
-//    qDebug() << "查找结束噢" ;
 }
 /* 判断星期几 */
 int ToWeek(QString data)
@@ -458,7 +472,7 @@ void ShorttestPath_Dijkstra(MGraph G,int v0,PathMaxtrix *P,ShortPathTable *D)
         }
     }
 }
-void ShortPath(int i,int j,PathMaxtrix *P,Transform *T)
+void ShortPath(int i,int j,PathMaxtrix *P)
 {
     int x,e;
     Citys.clear();
@@ -535,7 +549,7 @@ void Improve(PathMaxtrix *P,ShortPathTable *D,int k)
     }
 }
 
-
+/* 旅游推荐 */
 void FindFlight::on_CityRaider_Button_clicked()
 {
     CityRaider cityraiders;
@@ -543,4 +557,37 @@ void FindFlight::on_CityRaider_Button_clicked()
     {
 
     }
+}
+void PrintL(Ui::FindFlight *ui)
+{
+    QStandardItemModel *model = new QStandardItemModel();
+    ui->TableView->setModel(model);
+    model->setColumnCount(8);
+    model->setHeaderData(0,Qt::Horizontal,"航班号");
+    model->setHeaderData(1,Qt::Horizontal,"出发城市");
+    model->setHeaderData(2,Qt::Horizontal,"到达城市");
+    model->setHeaderData(3,Qt::Horizontal,"出发时间");
+    model->setHeaderData(4,Qt::Horizontal,"到达时间");
+    model->setHeaderData(5,Qt::Horizontal,"折后票价");
+    model->setHeaderData(6,Qt::Horizontal,"折扣");
+    model->setHeaderData(7,Qt::Horizontal,"余票");
+    Flight P=L.Front->next;
+    // 显示数据并居中
+    ui->TableView->horizontalHeader()->setStretchLastSection(true);//关键
+    for(int i=0;i<L.length;i++)
+    {
+        model->setItem(i,0,new QStandardItem(P->FlightNum));
+        model->setItem(i,1,new QStandardItem(P->StartPla));
+        model->setItem(i,2,new QStandardItem(P->EndPla));
+        model->setItem(i,3,new QStandardItem(P->TimeFly));
+        model->setItem(i,4,new QStandardItem(P->TimeArr));
+        model->setItem(i,5,new QStandardItem(P->Price));
+        model->setItem(i,6,new QStandardItem(P->Discount));
+        model->setItem(i,7,new QStandardItem(P->TicketsRest));
+        //居中
+        for(int j=0;j<7;j++)
+            model->item(i,j)->setTextAlignment(Qt::AlignCenter);
+        P=P->next;
+    }
+
 }
