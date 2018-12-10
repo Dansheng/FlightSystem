@@ -9,6 +9,8 @@ OrderQuery::OrderQuery(QWidget *parent) :
     ui(new Ui::OrderQuery)
 {
     ui->setupUi(this);
+    ui->CityStart->setAlignment(Qt::AlignRight);
+
     // to do :读取数据并且保存在qstring类型里
     //
     QStringList date;
@@ -17,6 +19,7 @@ OrderQuery::OrderQuery(QWidget *parent) :
     QStringList citystart;
     QStringList cityend;
     QStringList lineinfo;
+    QStringList flightnumber;
     QString name;
     QString info;
     QString loginuser;
@@ -58,6 +61,7 @@ OrderQuery::OrderQuery(QWidget *parent) :
                     timeend << lineinfo[6];
                     citystart << lineinfo[3];
                     cityend << lineinfo[4];
+                    flightnumber<<lineinfo[2];
                 }
             }
          }
@@ -67,6 +71,8 @@ OrderQuery::OrderQuery(QWidget *parent) :
     ui->CityEnd->setText(cityend[0]);
     ui->TimeStart->setText(timefly[0]);
     ui->TimeEnd->setText(timeend[0]);
+    ui->PlaneNumber->setText(flightnumber[0]);
+
 }
 
 OrderQuery::~OrderQuery()

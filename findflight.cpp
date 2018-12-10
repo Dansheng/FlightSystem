@@ -299,37 +299,45 @@ void FindFlight::on_Book_Button_clicked()
             }
             else
             {
-                //保存预定信息
-                QFile book(FILE_BOOK);
-                if(book.open(QFile::ReadWrite|QFile::Append))
+                // 判断余票量是否充足
+                index=model->index(row,7);
+                if( model->data(index).toString().toInt()>0)
                 {
-                    QTextStream in_book(&book);
-                    in_book << LoginUser ;
-                    in_book << "," << ui->TimeStart->text();
-                    qDebug() << ui->TimeStart->text();
-                    for(int i=0;i<8;i++)
+                    //保存预定信息
+                    QFile book(FILE_BOOK);
+                    if(book.open(QFile::ReadWrite|QFile::Append))
                     {
-                        index = model->index(row,i);
-                        in_book << "," << model->data(index).toString() ;
+                        QTextStream in_book(&book);
+                        in_book << LoginUser ;
+                        in_book << "," << ui->TimeStart->text();
+                        qDebug() << ui->TimeStart->text();
+                        for(int i=0;i<8;i++)
+                        {
+                            index = model->index(row,i);
+                            in_book << "," << model->data(index).toString() ;
+                        }
+                        info="预定成功！";
+                        SentMessage__(info);
                     }
-                    info="预定成功！";
-                    SentMessage__(info);
+                    book.close();
+                    //根据航班号找航班
+                    Flight P=L.Front->next;
+                    for(int g=0;g<L.length;g++)
+                    {
+
+                        if(P->FlightNum==BookFlightNum)
+                        {
+                            P->TicketsRest=QString::number(P->TicketsRest.toInt()-1);
+                            qDebug() << P->TicketsRest;
+                            PrintL(ui);
+                        }
+                        P=P->next;
+                    }
                 }
-                book.close();
-                //根据航班号找航班
-                qDebug()<<"pppppppppppppppppppppppppppppppp";
-                Flight P=L.Front->next;
-                for(int g=0;g<L.length;g++)
+                else
                 {
-                    qDebug() << P->FlightNum;
-                    qDebug() << BookFlightNum;
-                    if(P->FlightNum==BookFlightNum)
-                    {
-                        P->TicketsRest=QString::number(P->TicketsRest.toInt()-1);
-                        qDebug() << P->TicketsRest;
-                        PrintL(ui);
-                    }
-                    P=P->next;
+                    info="您要订购的航班没票啦！换一个航班订吧！";
+                    SentMessage__(info);
                 }
 
             }
