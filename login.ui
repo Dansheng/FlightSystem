@@ -222,19 +222,6 @@ font: 12pt &quot;Arial&quot;;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="dev">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>360</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>开发</string>
-   </property>
-  </widget>
   <zorder>Background</zorder>
   <zorder>Logo</zorder>
   <zorder>UserName_Edit</zorder>
@@ -244,7 +231,6 @@ font: 12pt &quot;Arial&quot;;</string>
   <zorder>Login_Button</zorder>
   <zorder>UserName_Label</zorder>
   <zorder>PassWord_Label</zorder>
-  <zorder>dev</zorder>
  </widget>
  <resources/>
  <connections/>
