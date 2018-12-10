@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <QDateTime>
 #include <const.h>
+#include <cityraider.h>
 // 整个文件还比较冗长，后期再进行降维优化。
 #define Inf 65535
 #define OVERFLOW -1
@@ -531,5 +532,15 @@ void Improve(PathMaxtrix *P,ShortPathTable *D,int k)
         if (i!=k&&P[i]==0) {
             P[i]=k;
         }
+    }
+}
+
+
+void FindFlight::on_CityRaider_Button_clicked()
+{
+    CityRaider cityraiders;
+    if(cityraiders.exec() == QDialog::Accepted)
+    {
+
     }
 }

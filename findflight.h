@@ -21,6 +21,8 @@ private slots:
 
     void on_Find_Button_clicked();
 
+    void on_CityRaider_Button_clicked();
+
 private:
     Ui::FindFlight *ui;
 };

@@ -141,6 +141,19 @@ QHeaderView {
     <string>预定</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="CityRaider_Button">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>400</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
