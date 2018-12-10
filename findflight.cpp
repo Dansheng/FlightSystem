@@ -392,7 +392,7 @@ void FindFlight::on_Book_Button_clicked()
                             waitname=swait[0];
                             waitnum=swait[1];
                             EnQueue(Q,waitname,waitnum,res);
-                            DeQueue(Q,i,j,k);
+//                            DeQueue(Q,i,j,k);
                             qDebug() << waitname<<waitnum<<endl;
                         }
                         wait.close();
