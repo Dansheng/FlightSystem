@@ -435,7 +435,7 @@
    <property name="font">
     <font>
      <family>STKaiti</family>
-     <pointsize>24</pointsize>
+     <pointsize>20</pointsize>
     </font>
    </property>
    <property name="text">
@@ -458,7 +458,7 @@
   <widget class="QLabel" name="RecommendedRoute">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>210</x>
      <y>460</y>
      <width>561</width>
      <height>41</height>
@@ -467,11 +467,11 @@
    <property name="font">
     <font>
      <family>STKaiti</family>
-     <pointsize>24</pointsize>
+     <pointsize>20</pointsize>
     </font>
    </property>
    <property name="text">
-    <string>!@#%$#@#$%^&amp;*</string>
+    <string/>
    </property>
   </widget>
   <zorder>Background</zorder>
