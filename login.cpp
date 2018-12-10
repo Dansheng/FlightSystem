@@ -83,7 +83,7 @@ void Login::on_Login_Button_clicked()
                 warning.addButton("确定",QMessageBox::ActionRole);
                 warning.exec();
         }
-
+        userdata.close();
     }
 }
 void Login::on_Register_Button_clicked()
