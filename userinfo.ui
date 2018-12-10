@@ -239,7 +239,7 @@
     </font>
    </property>
    <property name="text">
-    <string>622222199907289999</string>
+    <string>622222199907289999 </string>
    </property>
   </widget>
   <widget class="QLabel" name="Background">
