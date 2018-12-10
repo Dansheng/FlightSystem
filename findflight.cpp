@@ -28,7 +28,7 @@ typedef struct{
 }SqStack;
 //求最短路径
 void ShorttestPath_Dijkstra(MGraph G,int v0,PathMaxtrix *P,ShortPathTable *D);
-void ShortPath(int i,int j,PathMaxtrix *P,Transform *T);
+void ShortPath(int i,int j,PathMaxtrix *P);
 void Improve(PathMaxtrix *P,ShortPathTable *D,int k);
 void PrintFlight(QStringList Result);
 void InitStack(SqStack &S);//栈的初始化
@@ -389,7 +389,7 @@ void FindFlight::on_Find_Button_clicked()
         int end=CityTable.indexOf(BookCityEnd);
         ShorttestPath_Dijkstra(G,start,K,D);
         Improve(K,D,start);
-        ShortPath(start,end,K,T);
+        ShortPath(start,end,K);
         for(int g=0;g<numbers;g++)
         {
            qDebug()<<Citys[g];
@@ -472,7 +472,7 @@ void ShorttestPath_Dijkstra(MGraph G,int v0,PathMaxtrix *P,ShortPathTable *D)
         }
     }
 }
-void ShortPath(int i,int j,PathMaxtrix *P,Transform *T)
+void ShortPath(int i,int j,PathMaxtrix *P)
 {
     int x,e;
     Citys.clear();
