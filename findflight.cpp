@@ -305,6 +305,8 @@ void FindFlight::on_Book_Button_clicked()
                 {
                     QTextStream in_book(&book);
                     in_book << LoginUser ;
+                    in_book << "," << ui->TimeStart->text();
+                    qDebug() << ui->TimeStart->text();
                     for(int i=0;i<8;i++)
                     {
                         index = model->index(row,i);
