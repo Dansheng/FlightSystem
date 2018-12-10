@@ -57,5 +57,10 @@
         <file>Logo_AddFlight2.png</file>
         <file>NextCard.png</file>
         <file>CardBackground2.png</file>
+        <file>FlightEnquiry.png</file>
+        <file>OrderManagement.png</file>
+        <file>UserInformation.png</file>
+        <file>Logo1.png</file>
+        <file>Logo2.png</file>
     </qresource>
 </RCC>
