@@ -54,7 +54,8 @@
         <file>BackgroundLogo_Order.png</file>
         <file>Sentence.jpg</file>
         <file>CardBackground.png</file>
-        <file>CardBackground2.png</file>
         <file>Logo_AddFlight2.png</file>
+        <file>NextCard.png</file>
+        <file>CardBackground2.png</file>
     </qresource>
 </RCC>
