@@ -13,6 +13,39 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#Background{
+	background-color:rgb(247,247,247);
+}
+#AddFlight{
+	border-radius:6px;
+	border:1px solid rgb(180,180,180);
+	background-color:#fff;
+}
+#AddFlight:hover{
+	border-radius:6px;
+	border:1px solid rgb(15,118,131);
+}
+#Find_Button{
+	border-image: url(:/images/find_btn.png)；
+}
+#Find_Button:hover{
+	border-image: url(:/images/findpress_btn.png)；
+}
+#Order_Button{
+	border-image: url(:/images/order_btn.png);
+}
+#Order_Button:hover{
+	border-image: url(:/images/orderpress_btn.png);
+}
+
+#User_Button{
+	border-image: url(:/images/user_btn.png);
+}
+#User_Button:hover{
+	border-image: url(:/images/userpress_btn.png);
+}</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="Logo">
     <property name="geometry">
@@ -40,7 +73,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/images/find_btn.png);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -56,7 +89,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/images/order_btn.png);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -65,14 +98,14 @@
    <widget class="QPushButton" name="User_Button">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>610</x>
       <y>120</y>
       <width>181</width>
       <height>171</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/images/user_btn.png);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -81,16 +114,35 @@
    <widget class="QPushButton" name="AddFlight">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>300</y>
-      <width>93</width>
-      <height>28</height>
+      <x>710</x>
+      <y>320</y>
+      <width>71</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>AddFlight</string>
     </property>
    </widget>
+   <widget class="QLabel" name="Background">
+    <property name="geometry">
+     <rect>
+      <x>-150</x>
+      <y>-35</y>
+      <width>1021</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>Background</zorder>
+   <zorder>Logo</zorder>
+   <zorder>Find_Button</zorder>
+   <zorder>Order_Button</zorder>
+   <zorder>User_Button</zorder>
+   <zorder>AddFlight</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
