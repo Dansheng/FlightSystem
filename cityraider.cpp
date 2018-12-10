@@ -279,7 +279,7 @@ int *findpath(int start_point1, int end_point1 )
     edge[0][2]=2.7;edge[2][0]=2.7;
     edge[0][3]=6.4; edge[3][0]=6.4;
     edge[0][4]=37.7; edge[4][0]=37.7;
-    edge[1][2]=431;edge[2][1]=431;
+    edge[1][2]=0.4;edge[2][1]=0.4;
     edge[1][3]=1.6; edge[3][1]=1.6;
     edge[1][4]=32.8; edge[4][1]=32.8;
     edge[3][4]=31.6; edge[4][3]=31.6;
@@ -352,7 +352,7 @@ float CalWeight(int *s)
     edge[0][2]=2.7;edge[2][0]=2.7;
     edge[0][3]=6.4; edge[3][0]=6.4;
     edge[0][4]=37.7; edge[4][0]=37.7;
-    edge[1][2]=431;edge[2][1]=431;
+    edge[1][2]=0.4;edge[2][1]=0.4;
     edge[1][3]=1.6; edge[3][1]=1.6;
     edge[1][4]=32.8; edge[4][1]=32.8;
     edge[3][4]=31.6; edge[4][3]=31.6;
