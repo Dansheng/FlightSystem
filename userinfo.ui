@@ -37,6 +37,15 @@
 /*背景色*/
 #Background{
 	background:rgb(247,247,247);
+}
+#LogIn_Btn{
+	border:1px solids rgb(199,199,199);
+	border-radius:8px;
+	color:#fff;
+	background-color:rgb(10,114,200);
+}
+#LogIn_Btn:hover{
+	background-color:rgb(49,175,235);
 }</string>
   </property>
   <widget class="QLabel" name="UserName">
@@ -280,6 +289,38 @@
     <string>用户名</string>
    </property>
   </widget>
+  <widget class="QLabel" name="NotLoggedIn">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>240</y>
+     <width>231</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>STKaiti</family>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>您还未登录，请登录</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="LogIn_Btn">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>340</y>
+     <width>113</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>登录</string>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>Logo</zorder>
   <zorder>UserName</zorder>
@@ -293,6 +334,8 @@
   <zorder>Place</zorder>
   <zorder>IdCard</zorder>
   <zorder>UserName_Label</zorder>
+  <zorder>NotLoggedIn</zorder>
+  <zorder>LogIn_Btn</zorder>
  </widget>
  <resources/>
  <connections/>

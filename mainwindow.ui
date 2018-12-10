@@ -10,6 +10,18 @@
     <height>387</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>859</width>
+    <height>387</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>859</width>
+    <height>387</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -26,95 +38,133 @@
 	border-radius:6px;
 	border:1px solid rgb(15,118,131);
 }
+#Find_Label{
+	image: url(:/images/FlightEnquiry.png);
+}
+#Order_Label{
+	image: url(:/images/OrderManagement.png);
+}
+#User_Label{
+	image: url(:/images/UserInformation.png);
+}
 #Find_Button{
-	border-image: url(:/images/find_btn.png)；
+	border:none;
+	background-color:none;
+	color:#6E6E6E;
 }
 #Find_Button:hover{
-	border-image: url(:/images/findpress_btn.png)；
+	color:rgb(0,0,0);
 }
 #Order_Button{
-	border-image: url(:/images/order_btn.png);
+	border:none;
+	background-color:none;
+	color:#6E6E6E;
 }
 #Order_Button:hover{
-	border-image: url(:/images/orderpress_btn.png);
+	color:rgb(0,0,0);
 }
-
 #User_Button{
-	border-image: url(:/images/user_btn.png);
+	border:none;
+	background-color:none;
+	color:#6E6E6E;
 }
 #User_Button:hover{
-	border-image: url(:/images/userpress_btn.png);
+	color:rgb(0,0,0);
+}
+#Logo_2{
+border-image: url(:/images/Logo_AddFlight2.png);
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>10</y>
-      <width>501</width>
-      <height>81</height>
+      <x>230</x>
+      <y>20</y>
+      <width>391</width>
+      <height>71</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
+    <property name="font">
+     <font>
+      <family>STKaiti</family>
+      <pointsize>48</pointsize>
+     </font>
     </property>
-    <property name="pixmap">
-     <pixmap resource="assets/images/images.qrc">:/images/logo.png</pixmap>
+    <property name="text">
+     <string>航空订票管理系统</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Find_Button">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>120</y>
-      <width>181</width>
-      <height>171</height>
+      <x>90</x>
+      <y>250</y>
+      <width>161</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>STKaiti</family>
+      <pointsize>24</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
     </property>
     <property name="text">
-     <string/>
+     <string>航班查询</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Order_Button">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>120</y>
-      <width>181</width>
-      <height>171</height>
+      <x>350</x>
+      <y>250</y>
+      <width>171</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>STKaiti</family>
+      <pointsize>24</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
     </property>
     <property name="text">
-     <string/>
+     <string>订单管理</string>
     </property>
    </widget>
    <widget class="QPushButton" name="User_Button">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>120</y>
-      <width>181</width>
-      <height>171</height>
+      <x>600</x>
+      <y>250</y>
+      <width>191</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>STKaiti</family>
+      <pointsize>24</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
     </property>
     <property name="text">
-     <string/>
+     <string>个人信息</string>
     </property>
    </widget>
    <widget class="QPushButton" name="AddFlight">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>750</x>
       <y>320</y>
       <width>71</width>
       <height>20</height>
@@ -127,10 +177,74 @@
    <widget class="QLabel" name="Background">
     <property name="geometry">
      <rect>
-      <x>-150</x>
-      <y>-35</y>
+      <x>-80</x>
+      <y>-50</y>
       <width>1021</width>
       <height>571</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1021</width>
+      <height>571</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1021</width>
+      <height>571</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Find_Label">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>130</y>
+      <width>111</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Order_Label">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>130</y>
+      <width>91</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="User_Label">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>130</y>
+      <width>91</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Logo_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>20</y>
+      <width>751</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
@@ -138,17 +252,19 @@
     </property>
    </widget>
    <zorder>Background</zorder>
+   <zorder>Logo_2</zorder>
    <zorder>Logo</zorder>
    <zorder>Find_Button</zorder>
    <zorder>Order_Button</zorder>
    <zorder>User_Button</zorder>
    <zorder>AddFlight</zorder>
+   <zorder>Find_Label</zorder>
+   <zorder>Order_Label</zorder>
+   <zorder>User_Label</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="assets/images/images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
