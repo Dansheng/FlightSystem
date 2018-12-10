@@ -27,6 +27,7 @@
 }
 #CardBackground:hover{
 	border-image: url(:/images/CardBackground2.png);
+
 }
 #Background{
 	background-color:rgb(247,247,247);
@@ -45,6 +46,16 @@
 }
 #TurnLeft{
 	border-radius:4px;
+}
+#Close_Btn{
+	border-radius:7px;
+	border:none;
+	background-color:none;
+}
+#Close_Btn:hover{
+	border:1px solids rgb(175,175,175);
+	background-color:rgb(255,0,0);
+	border-radius:7px;
 }</string>
   </property>
   <widget class="QLabel" name="MyOrder">
@@ -71,14 +82,21 @@
     <rect>
      <x>140</x>
      <y>110</y>
-     <width>101</width>
+     <width>91</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>3</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
      <family>STKaiti</family>
      <pointsize>24</pointsize>
+     <strikeout>false</strikeout>
     </font>
    </property>
    <property name="text">
@@ -302,7 +320,22 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="Close_Btn">
+   <property name="geometry">
+    <rect>
+     <x>498</x>
+     <y>90</y>
+     <width>15</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
   <zorder>Background</zorder>
+  <zorder>Sentence</zorder>
+  <zorder>BackgroundLogo</zorder>
   <zorder>CardBackground</zorder>
   <zorder>MyOrder</zorder>
   <zorder>CityStart</zorder>
@@ -315,8 +348,7 @@
   <zorder>PlaneNumber</zorder>
   <zorder>Money_Label</zorder>
   <zorder>Money</zorder>
-  <zorder>Sentence</zorder>
-  <zorder>BackgroundLogo</zorder>
+  <zorder>Close_Btn</zorder>
  </widget>
  <resources/>
  <connections/>
