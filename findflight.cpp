@@ -333,6 +333,21 @@ void FindFlight::on_Book_Button_clicked()
                         }
                         P=P->next;
                     }
+                    //重新把当前的链表传入文件中
+                    QFile data(FILE_PATH);
+                    if (data.open(QFile::WriteOnly )) {
+                        QTextStream out(&data);
+                        Flight P=L.Front->next;
+                        for(int i=0;i<L.length;i++)
+                        {
+                            out << P->StartPla << ","<< P->EndPla << ","<< P->FlightNum << ","<< P->PlaneNum << ","<< P->TimeFly << ","<<
+                                   P->TimeArr  << ","<< P->date   << ","<< P->Price     << ","<< P->Discount << ","<< P->PassNum << ","<<
+                                   P->TicketsRest ;
+                            P=P->next;
+                        }
+                        data.flush();
+                        data.close();
+                    }
                 }
                 else
                 {
