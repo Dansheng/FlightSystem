@@ -67,11 +67,11 @@ OrderQuery::OrderQuery(QWidget *parent) :
          }
     }
     // 默认输出为第一条预定的消息
-    ui->CityStart->setText(citystart[0]);
-    ui->CityEnd->setText(cityend[0]);
-    ui->TimeStart->setText(timefly[0]);
-    ui->TimeEnd->setText(timeend[0]);
-    ui->PlaneNumber->setText(flightnumber[0]);
+   QString temp;
+   temp=citystart.at(0);
+   qDebug() <<temp;
+//    qDebug() <<citystart.at(0);
+//    ui->CityStart->setText(citystart[0]);
 
 }
 

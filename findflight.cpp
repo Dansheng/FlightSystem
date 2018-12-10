@@ -12,7 +12,19 @@
 // 整个文件还比较冗长，后期再进行降维优化。
 #define Inf 65535
 #define OVERFLOW -1
-
+typedef struct QNode{//队列结构体
+    QString name;
+    QString planenum;
+    QString rest;
+    struct QNode *next;
+}QNode,*QueuePtr;
+typedef struct {
+    QueuePtr front;
+    QueuePtr rear;
+}QueueList;
+void InitQueue(QueueList &Q);//队列数据结构
+void EnQueue(QueueList &Q,QString nam,QString planenu,QString rest);
+void DeQueue(QueueList &Q,QString &nam,QString &planenu,QString &rest);
 typedef struct {
     int arcs[26][26];//邻接矩阵
     int vexnum,arcnum;//图的当前顶点数和弧数
@@ -61,7 +73,7 @@ static QStringList CityTable,HeaderTable;
 MGraph G;
 static int numbers=0;
 static QStringList Citys;
-
+static QueueList Q;//存求票顾客的队列
 
 
 /* 函数声明 */
@@ -134,6 +146,7 @@ FindFlight::FindFlight(QWidget *parent) :
     // 设置初始时间
     QDateTime Current_Date_Time =QDateTime::currentDateTime();
     ui->TimeStart->setDateTime(Current_Date_Time);
+InitQueue(Q);
 
 }
 /* 读取数据 */
@@ -277,7 +290,7 @@ void FindFlight::on_Book_Button_clicked()
     int row = ui->TableView->currentIndex().row();
     QAbstractItemModel *model = ui->TableView->model();
     QModelIndex index = model->index(row,0);
-    QString BookFlightNum = model->data(index).toString();
+    QString BookFlightNum = model->data(index).toString();//指定航班号
     QString info;
     if(row==-1)
     {
@@ -287,7 +300,7 @@ void FindFlight::on_Book_Button_clicked()
     else
     {
         QFile login(FILE_LOGIN);
-        QString LoginUser;
+        QString LoginUser;//顾客姓名
         if(login.open(QFile::ReadOnly))
         {
             QTextStream  in_login(&login);
@@ -328,6 +341,7 @@ void FindFlight::on_Book_Button_clicked()
                         if(P->FlightNum==BookFlightNum)
                         {
                             P->TicketsRest=QString::number(P->TicketsRest.toInt()-1);
+                            P->TicketsRest.append("\r\n");
                             qDebug() << P->TicketsRest;
                             PrintL(ui);
                         }
@@ -351,7 +365,48 @@ void FindFlight::on_Book_Button_clicked()
                 }
                 else
                 {
-                    info="您要订购的航班没票啦！换一个航班订吧！";
+                    info="您要订购的航班没票啦！\n您已进入候补名单！";
+                    QFile wait(FILE_BOOKQUEUE);
+                    QStringList swait;
+                    QString waitname,i,j,k;
+                    QString waitnum;
+                    QString strwait;
+                    QString res="wjk";
+                    int waitlength=0;
+                    if (wait.open(QIODevice::ReadOnly | QIODevice::Text)){//求文件行数
+                         QTextStream infom(&wait);
+                         while (!infom.atEnd()) {
+                             QString line = infom.readLine();
+                             waitlength++;
+                         }
+                         wait.close();
+                    qDebug()<<waitlength<<endl;
+                    }
+                    if(wait.open(QIODevice::ReadWrite))//把文件信息读入队列
+                    {
+                        QTextCodec *cwait = QTextCodec::codecForName("UTF-8");
+                        for(int i=0;i<waitlength;i++)
+                        {
+                            strwait = cwait->toUnicode(wait.readLine());
+                            swait = strwait.split(",");
+                            waitname=swait[0];
+                            waitnum=swait[1];
+                            EnQueue(Q,waitname,waitnum,res);
+                            DeQueue(Q,i,j,k);
+                            qDebug() << waitname<<waitnum<<endl;
+                        }
+                        wait.close();
+                    }
+
+                    EnQueue(Q,LoginUser,BookFlightNum,res);//入队
+                    QFile bookqueue(FILE_BOOKQUEUE);
+                    if(bookqueue.open(QIODevice::WriteOnly|QFile::Append))
+                    {
+                        QTextStream customer(&bookqueue);
+                        customer << LoginUser<<","<<BookFlightNum<<","<<res<<endl;
+
+                    }
+                    bookqueue.close();
                     SentMessage__(info);
                 }
 
@@ -615,4 +670,37 @@ void PrintL(Ui::FindFlight *ui)
         P=P->next;
     }
 
+}
+void InitQueue(QueueList &Q)//队列数据结构
+{
+    Q.front=(QueuePtr)malloc(sizeof(QNode));
+    Q.rear=Q.front;
+    Q.front->next=NULL;
+}
+void EnQueue(QueueList &Q,QString nam,QString planenu,QString res)
+{
+    QueuePtr P;
+    P=new QNode;
+    P->name=nam;
+    P->planenum=planenu;
+    P->rest=res;
+    P->next=NULL;
+    Q.rear->next=P;
+    Q.rear=P;
+}
+void DeQueue(QueueList &Q,QString &nam,QString &planenu,QString &res)
+{
+    if (Q.front==Q.rear) {
+        return;
+    }
+    QueuePtr P;
+    P=Q.front->next;
+    nam=P->name;
+    planenu=P->planenum;
+    res=P->rest;
+    Q.front->next=P->next;
+    if (P==Q.rear) {
+        Q.rear=Q.front;
+    }
+    free(P);
 }

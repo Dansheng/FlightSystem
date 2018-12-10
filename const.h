@@ -12,4 +12,5 @@ const QString FILE_LOGIN("/Users/wanghanyi/Desktop/FlightSystem/assets/user/logi
 const QString FILE_FLIGHTCOUNTS("/Users/wanghanyi/Desktop/FlightSystem/assets/flight/count.txt");
 const QString FILE_USERS("/Users/wanghanyi/Desktop/FlightSystem/assets/user/user.csv");
 const QString FILE_USERCOUNTS("/Users/wanghanyi/Desktop/FlightSystem/assets/user/count.txt");
+const QString FILE_BOOKQUEUE("/Users/wanghanyi/Desktop/FlightSystem/assets/user/queue.txt");
 #endif // CONST_H
