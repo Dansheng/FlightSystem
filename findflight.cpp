@@ -331,8 +331,8 @@ void FindFlight::on_Book_Button_clicked()
                         }
                         info="预定成功！";
                         SentMessage__(info);
+                        book.close();
                     }
-                    book.close();
                     //根据航班号找航班
                     Flight P=L.Front->next;
                     for(int g=0;g<L.length;g++)
@@ -349,7 +349,8 @@ void FindFlight::on_Book_Button_clicked()
                     }
                     //重新把当前的链表传入文件中
                     QFile data(FILE_PATH);
-                    if (data.open(QFile::WriteOnly )) {
+                    if (data.open(QFile::WriteOnly ))
+                    {
                         QTextStream out(&data);
                         Flight P=L.Front->next;
                         for(int i=0;i<L.length;i++)
@@ -368,12 +369,14 @@ void FindFlight::on_Book_Button_clicked()
                     info="您要订购的航班没票啦！\n您已进入候补名单！";
                     QFile wait(FILE_BOOKQUEUE);
                     QStringList swait;
-                    QString waitname,i,j,k;
+                    QString waitname;
                     QString waitnum;
                     QString strwait;
+                    QString nam,num,resq;
                     QString res="wjk";
                     int waitlength=0;
-                    if (wait.open(QIODevice::ReadOnly | QIODevice::Text)){//求文件行数
+                    if (wait.open(QIODevice::ReadOnly | QIODevice::Text))
+                    {//求文件行数
                          QTextStream infom(&wait);
                          while (!infom.atEnd()) {
                              QString line = infom.readLine();
@@ -392,13 +395,34 @@ void FindFlight::on_Book_Button_clicked()
                             waitname=swait[0];
                             waitnum=swait[1];
                             EnQueue(Q,waitname,waitnum,res);
-//                            DeQueue(Q,i,j,k);
                             qDebug() << waitname<<waitnum<<endl;
-                        }
+                            }
                         wait.close();
+
+                    }
+                    EnQueue(Q,LoginUser,BookFlightNum,res);//入队
+                    //
+                    DeQueue(Q,nam,num,resq);
+                    QFile bookqqq(FILE_BOOK);
+                    if(bookqqq.open(QFile::ReadWrite|QFile::Append))
+                    {
+                        QTextStream inbook(&bookqqq);
+                        inbook << LoginUser ;
+                        Flight F=L.Front->next;
+                        for(int i=0;i<L.length;i++)
+                        {
+                            if(F->FlightNum==num)
+                            {
+                                inbook<<","<<ui->TimeStart->text()<<","<<F->FlightNum<<","<<F->StartPla<<","<<F->EndPla<<","<<F->TimeFly<<","<<F->TimeArr<<","<<F->Price<<","<<F->Discount<<","<<F->TicketsRest;
+                                break;
+                            }
+                            F=F->next;
+                         }
+                        bookqqq.close();
                     }
 
-                    EnQueue(Q,LoginUser,BookFlightNum,res);//入队
+
+                    //
                     QFile bookqueue(FILE_BOOKQUEUE);
                     if(bookqueue.open(QIODevice::WriteOnly|QFile::Append))
                     {
