@@ -15,6 +15,10 @@ public:
     explicit OrderQuery(QWidget *parent = 0);
     ~OrderQuery();
 
+private slots:
+    void on_Close_Btn_clicked();
+
+
 private:
     Ui::OrderQuery *ui;
 };

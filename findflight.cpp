@@ -79,6 +79,7 @@ static QueueList Q;//存求票顾客的队列
 /* 函数声明 */
 void ReadData(Flight &L,int length);//文件中读取数据
 void RaidSort(Flight &L);//基数排序
+void RaidSort2(Flight &L);//基数排序航班号
 QString Trans(QString str);//三字码
 void InitList(Flight &L);//初始化
 int ListEmpty(Flight L);//判空
@@ -124,7 +125,7 @@ FindFlight::FindFlight(QWidget *parent) :
     }
     //L.Rear->next=NULL;
     ReadData(L.Front,L.length);
-    RaidSort(L.Front);
+    RaidSort2(L.Front);
     Flight P=L.Front->next;
     // 显示数据并居中
     for(int i=0;i<L.length;i++)
@@ -250,6 +251,37 @@ void RaidSort(Flight &L)
            delete (Bucket[i]);
        }
 }
+void RaidSort2(Flight &L)//基数排序航班号
+{
+    AirInfoNode*Bucket[26];
+    int i,j,chToin;
+    QString str,toThree;
+    QChar Thumb;
+    for (i=0; i<26; i++) {
+        InitList(Bucket[i]);//初始化26个桶
+    }
+    for (j=5; j>=0; j--) {//三字码
+        while (!ListEmpty(L)) {
+            str=L->next->FlightNum;//获取首元结点的元素
+            Thumb=str.at(j);
+            if(Thumb<='Z' && Thumb >='A')
+            chToin=(int)(Thumb.unicode()-'A');
+            else{
+                chToin=(int)(Thumb.unicode()-'0');
+            }
+            MoveNode(Bucket[chToin], L);//把结点放进相应的桶中
+        }
+        for (i=0; i<26; i++) {
+            while (!ListEmpty(Bucket[i])) {
+                MoveNode(L, Bucket[i]);//把桶中的元素重新放回单链表
+            }
+        }
+    }
+    for (i=0; i<26; i++) {
+        delete (Bucket[i]);
+    }
+}
+
 /* 转换为三字码 */
 QString Trans(QString str)
 {
